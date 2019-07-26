@@ -5,7 +5,14 @@ import domUpdates from '../src/domUpdates'
 const expect = chai.expect;
 
 
-describe('See if the tests are running', function() {
-    it('should return true', function() {
-      expect(true).to.equal(true);
-    });
+describe('hotel', function() {
+
+beforeEach(function() {
+    let hotel;
+  });
+  
+  it('should return true', function() {
+    let hotel = new Hotel()
+    expect(hotel).to.equal(Hotel);
+  });
+});
