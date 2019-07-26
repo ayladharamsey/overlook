@@ -1,4 +1,4 @@
-import Bookings from '../src/Bookings'
+import Bookings from '../src/Bookings.js'
 import chai from 'chai';
 import spies from 'chai-spies'
 import domUpdates from '../src/domUpdates'
