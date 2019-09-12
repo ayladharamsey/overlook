@@ -5,6 +5,7 @@ class Customer {
         this.id = id;
         this.name = name;
     }
+
 }
 
 export default Customer;
