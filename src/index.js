@@ -3,7 +3,6 @@ import Orders from "../src/Orders.js";
 import Bookings from "../src/Bookings.js";
 import Hotel from "../src/Hotel.js";
 import './css/base.scss';
-import 'normalize.css'
 
 $(document).ready(function () {
   let orders;
