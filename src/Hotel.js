@@ -12,10 +12,22 @@ class Hotel {
     this.date = date;
   }
 
+  findCurrentCustomer(id) {
+    return this.customers.find(customer => customer.id === id)
+  }
+
   createNewCustomer(name) {
     var newId = this.customers.length + 1
     let customer = new Customer(name, newId)
     this.customers.push(customer)
+  }
+
+  findCustomerBookings() {
+
+  }
+
+  findCustomerOrders() {
+
   }
 }
 
