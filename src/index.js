@@ -4,10 +4,10 @@ import Bookings from "../src/Bookings.js";
 import Hotel from "../src/Hotel.js";
 import './css/base.scss';
 
-$(document).ready(function () {
-  let orders;
-  let bookings;
-  let hotel;
+let usersData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users');
+let roomsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms');
+let bookingsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings');
+let roomServicesData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices'); 
 
 
   const date = () => {
@@ -27,4 +27,3 @@ $(document).ready(function () {
     let thisDay = dd + '/' + mm + '/' + yyyy;
     return thisDay;
   }
-});
