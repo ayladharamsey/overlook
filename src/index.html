@@ -3,13 +3,125 @@
   <head>
     <link rel="stylesheet" type="text/css" src="css/normalize.css">
     <link rel="stylesheet" type="text/css" src="css/base.scss">
-    <title>Webpack Starter Kit</title>
+    <title>Hotel App</title>
+    <meta charset="UTF-8">
   </head>
   <body>
-    <h1>Webpack Starter Kit</h1>
-
-    <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+    <nav>
+      <button> Delete User </button>
+      <h3> Chosen User Name</h3>
+      <h3>00 / 00 / 00</h3>
+    </nav>
+    <h1> The Grand Budapest Hotel </h1>
+    <main>
+      <section>
+        <button>Close Main Tab</button>
+        <div>
+          <h4>Main Tab</h4>
+          <h5> Date:</h5>
+          <input type="time" placeholder="Enter Date Here">
+          <h5> Total Revenue <span>100</span> dollars</h5>
+          <h5> Percent Rooms Occupied <span>35</span> percent</h5>
+        </div>
+      </section>
+      <section>
+          <button>Close Customer Tab</button>
+          <div>
+          <h4>Customer Tab</h4>
+            <input type="search" placeholder="Search for customer here!">
+            <h5> Results </h5>
+            <ul>
+              <li> customer example 1 </li>
+            </ul>
+          </div>
+        </section>
+        <section>
+            <button>Close Orders Tab</button>
+            <h4>Orders Tab</h4>
+            <div>
+              <h5> Date: </h5>
+              <input type="time" placeholder="Enter Date Here">
+              <ul>
+                <li> order 1 </li>
+                <li> order 2 </li>
+                <li> order 3 </li>
+              </ul>
+              <h5> Amount of Money Spent Today <span> 00.00 </span></h5>
+              <h5> Amount of Money Spent Overall <span> 00.00 </span></h5>
+            </div>
+          </section>
+          <section>
+              <button>Close Bookings Tab</button>
+              <h4>Bookings Tab</h4>
+              <div>
+                <h5> Most Popular Date <span> 00 / 00 / 00 </span></h5>
+                <h5> Dates Available: </h5>
+                <ul>
+                  <li> 00 / 00 / 00 </li>
+                  <li> 00 / 00 / 00  </li>
+                  <li> 00 / 00 / 00  </li>
+                </ul>
+              </div>
+              <div>
+                <h5> Past Bookings: </h5>
+                <ul>
+                  <li> 00 / 00 / 00 </li>
+                  <li> 00 / 00 / 00  </li>
+                  <li> 00 / 00 / 00  </li>
+                </ul>
+                <h5> Future Bookings: </h5>
+                <ul>
+                  <li> 00 / 00 / 00 </li>
+                  <li> 00 / 00 / 00  </li>
+                  <li> 00 / 00 / 00  </li>
+                </ul>
+              </div>
+              <div>
+                <button>Create a Booking</button>
+                <ul>
+                  <li>
+                    <input type="radio"> 
+                    <h5> Room Type 1</h5>
+                  </li>
+                  <li>
+                      <input type="radio"> 
+                      <h5> Room Type 2</h5>
+                  </li>
+                  <li>
+                      <input type="radio"> 
+                      <h5> Room Type 3</h5>
+                  </li>
+                </ul>
+                <button> Add Food </button>
+              </div>
+              <div>
+                <button> Back </button>
+                <h5> Type: <span> example </span></h5>
+                <h5> Number of Beds: <span> example </span></h5>
+                <h5> Bed Size: <span> example </span></h5>
+                <h5> Bidet: <span> example </span></h5>
+                <button>Choose</button>
+              </div>
+              <div>
+                <input type="time" placeholder="Enter Date Here">
+                <ul>
+                  <li>
+                    <input type="checkbox">
+                    <h5> Food Item 1 <span> 10 </span> dollars</h5>
+                  </li>
+                  <li>
+                      <input type="checkbox">
+                      <h5> Food Item 2 <span> 10 </span> dollars</h5>
+                  </li>
+                  <li>
+                      <input type="checkbox">
+                      <h5> Food Item 3 <span> 10 </span> dollars</h5>
+                  </li>
+                </ul>
+                <h5>Total: <span> 00.00 </span> dollars</h5>
+                <button>Confirm Order</button>
+              </div>
+            </section>
+    </main>
   </body>
 </html>
