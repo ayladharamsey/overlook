@@ -1,3 +1,5 @@
+//event handling 
+
 import $ from 'jquery';
 import Orders from "../src/Orders.js";
 import Bookings from "../src/Bookings.js";
@@ -19,7 +21,6 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
     let rooms = allData.find(data => data.hasOwnProperty('rooms')).rooms;
     let bookings = allData.find(data => data.hasOwnProperty('bookings')).bookings;
     let roomServices = allData.find(data => data.hasOwnProperty('roomServices')).roomServices;
-    console.log(date)
     hotel = new Hotel(customers, rooms, bookings, roomServices, date);
   });
 

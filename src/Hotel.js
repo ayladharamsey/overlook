@@ -23,11 +23,31 @@ class Hotel {
   }
 
   findCustomerBookings() {
+    let pastDates = [];
+    let futureDates = [];
+    let currentCustomer = this.findCurrentCustomer();
+    let allBookingsForCustomer = this.bookings.filter(booking => {
+      booking.userID === currentCustomer.id
+    });
+    allBookingsForCustomer.forEach(booking => {
+      booking.date < this.date ? pastOrders.push(order) : futureOrders.push(order);
+    });
+    console.log(pastDates, futureDates)
+    return [pastDates, futureDates]
 
   }
 
   findCustomerOrders() {
-
+    let pastOrders = [];
+    let futureOrders = [];
+    let currentCustomer = this.findCurrentCustomer();
+    let allOrders = this.orders.filter(order => {
+      order.userID === currentCustomer.id
+    })
+    allOrders.forEach(order => {
+      order.date < this.date ? pastOrders.push(order) : futureOrders.push(order)
+    })
+    return [pastOrders, futureOrders]
   }
 }
 
