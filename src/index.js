@@ -16,7 +16,7 @@ let date = getDate();
 let hotel = 'potato';
 
 Promise.all([customersData, roomsData, bookingsData, roomServicesData])
-  .then(values => Promise.all(values.map(value => value.json())))
+  .then(dataSet => Promise.all(dataSet.map(dataSet => dataSet.json())))
   .then(allData => {
     let customers = allData.find(data => data.hasOwnProperty('users')).users;
     let rooms = allData.find(data => data.hasOwnProperty('rooms')).rooms;

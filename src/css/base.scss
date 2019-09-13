@@ -1,6 +1,34 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+$primary-orange :#D67235;
+$primary-burgundy :#5B1918;
+$primary-coral :#F46966;
+$primary-yellow:#F2BB7B;
+$display-typeface:'Spirax', cursive;
+$secondary-typeface: 'Roboto', sans-serif;
+
+
 
 body {
-  background-color: $primary-background;
+  background-color: $primary-yellow;
+  font-family: $secondary-typeface;
+  font-weight: 100;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+      font-family: $display-typeface;
+      font-size: 3em;
+    }
+  }
+
+  button {
+    background-color: $primary-orange;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    height: 25px;
+  }
+
+  
 }

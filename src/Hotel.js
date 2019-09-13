@@ -10,6 +10,7 @@ class Hotel {
     this.bookings = bookings;
     this.orders = orders;
     this.date = date;
+    this.currentCustomer = this.findCurrentCustomer();
   }
 
   findCurrentCustomer(id) {
