@@ -1,6 +1,7 @@
 //event handling 
 
 import $ from 'jquery';
+import domUpdates from './domUpdates';
 import Orders from "../src/Orders.js";
 import Bookings from "../src/Bookings.js";
 import Customer from "../src/Customer.js";
@@ -12,7 +13,7 @@ let roomsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/
 let bookingsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings');
 let roomServicesData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices'); 
 let date = getDate();
-let hotel;
+let hotel = 'potato';
 
 Promise.all([customersData, roomsData, bookingsData, roomServicesData])
   .then(values => Promise.all(values.map(value => value.json())))
@@ -22,9 +23,11 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
     let bookings = allData.find(data => data.hasOwnProperty('bookings')).bookings;
     let roomServices = allData.find(data => data.hasOwnProperty('roomServices')).roomServices;
     hotel = new Hotel(customers, rooms, bookings, roomServices, date);
-  });
-
-
+    })
+  .then(() => onLoadHandler());
+  
+$('.reset-button').click(() => location.reload())
+  
 function getDate() {
   let today = new Date();
   let dd = today.getDate();
@@ -41,6 +44,12 @@ function getDate() {
 
   let thisDay = mm + '/' + dd + '/' + yyyy;
   return thisDay;
+}
+
+
+function onLoadHandler() {
+  domUpdates.appendDate(date);
+  domUpdates.appendChosenUserName(hotel)
 }
 
 
