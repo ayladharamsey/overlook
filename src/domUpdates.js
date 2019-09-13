@@ -1,3 +1,4 @@
+// all jquery manipulation 
 import $ from 'jquery';
 
 let domUpdates = {
