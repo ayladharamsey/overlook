@@ -5,6 +5,13 @@ $primary-yellow:#F2BB7B;
 $display-typeface:'Spirax', cursive;
 $secondary-typeface: 'Roboto', sans-serif;
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+	padding: 0;
+}
 
 
 body {
@@ -16,10 +23,19 @@ body {
     display: flex;
     justify-content: space-between;
 
-    h1 {
-      font-family: $display-typeface;
-      font-size: 3em;
+    .nav-div_left-nav {
+      display: flex;
+      width: 25%;
+      }
+    .nav-button_delete-user {
+      width: 50%;
+      margin: 20px;
+      }
     }
+
+  h1 {
+    font-family: $display-typeface;
+    font-size: 3em;
   }
 
   button {
