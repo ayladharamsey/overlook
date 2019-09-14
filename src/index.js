@@ -41,6 +41,12 @@ $('.nav-button_delete-user').click(() => {
   domUpdates.removeCurrentCustomer();
 })
 
+$('.main-button_submit-date').click(() => {
+  domUpdates.appendDateInQuestion($('.main-input_date').val());
+  var input = $(event.target).siblings('input')[0].className;
+  domUpdates.clearInput(input)
+})
+
 // $('.accordion').accordion({
 //   collapsible: true, active: true
 // })

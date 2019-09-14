@@ -9,6 +9,9 @@ let domUpdates = {
   appendChosenUserName(name) {
     $('.nav-header_chosen-user').text(name)
   }, 
+  appendDateInQuestion(date){
+    $('.main-header_date-in-question').text(date)
+  },
 
   clearInput(input) {
     $(`.${input}`).val('')
