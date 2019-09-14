@@ -1,6 +1,7 @@
 //event handling 
 
 import $ from 'jquery';
+// import 'jq-accordion';
 import domUpdates from './domUpdates';
 import Orders from "../src/Orders.js";
 import Bookings from "../src/Bookings.js";
@@ -27,6 +28,9 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
   .then(() => onLoadHandler());
   
 $('.reset-button').click(() => location.reload())
+$('.accordion').accordion({
+  collapsible: true, active: true
+})
   
 function getDate() {
   let today = new Date();
@@ -42,7 +46,7 @@ function getDate() {
     mm = '0' + mm
   }
 
-  let thisDay = mm + '/' + dd + '/' + yyyy;
+  let thisDay = yyyy + '/' + mm + '/' + dd;
   return thisDay;
 }
 
@@ -50,6 +54,7 @@ function getDate() {
 function onLoadHandler() {
   domUpdates.appendDate(date);
   domUpdates.appendChosenUserName(hotel)
+
 }
 
 

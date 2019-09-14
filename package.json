@@ -36,6 +36,7 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
+    "jq-accordion": "^1.0.3",
     "jquery": "^3.4.1",
     "webpack-jquery-ui": "^2.0.1"
   }

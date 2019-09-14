@@ -14,23 +14,21 @@
       </div>
       <h3 class="nav-date_todays-date">00 / 00 / 00</h3>
     </nav>
-    <h1 class="title"> The Grand Budapest Hotel </h1>
+    <h1 class="title"> Hotel Manager </h1>
     <button class="reset-button"> Reset </button>
     <main>
-      <section class="main-section">
-        <button class="main-button_close-tab">Close Main Tab</button>
-        <div class="">
-          <h4 class="main-header_main-tab">Main Tab</h4>
+      <div id="accordion" class="ui-widget">
+        <h3 class="main-header_main-tab"><a href="#">Main Tab</a></h3>
+        <!-- <button class="main-button_close-tab">Close Main Tab</button> -->
+        <div class="first-tab">
           <h5 class="main-header_date"> Date:</h5>
           <input type="time" placeholder="Enter Date Here" class="main-input_date">
           <h5 class="main-header_total-revenue"> Total Revenue <span class="main-header_dollars">100</span> dollars</h5>
           <h5 class="main-header_percent-occupied"> Percent Rooms Occupied <span class="main-header_percent-number">35</span> percent</h5>
         </div>
-      </section>
-      <section class="customer-section">
-        <button class="customer-button_customer-tab">Close Customer Tab</button>
-        <div>
-          <h4 class="customer-header_customer-tab">Customer Tab</h4>
+        <div class="second-tab">
+        <!-- <button class="customer-button_customer-tab">Close Customer Tab</button> -->
+          <h3 class="customer-header_customer-tab"><a href="#">Customer Tab</a></h3>
           <input type="search" placeholder="Search for customer here!" class="customer-input_name">
           <h5 class="customer-header_results"> Results </h5>
           <ul class="customer-list_results">
@@ -39,11 +37,9 @@
           </ul>
           <button class="customer-button_create-customer">Create Customer</button>
         </div>
-      </section>
-      <section class="orders-section">
-          <button class="orders-button_orders-tab">Close Orders Tab</button>
-          <h4 class="orders-header_orders-tab">Orders Tab</h4>
-          <div>
+        <div class="third-tab">
+          <!-- <button class="orders-button_orders-tab">Close Orders Tab</button> -->
+          <h3 class="orders-header_orders-tab"><a href="#">Orders Tab</a></h3>
             <h5 class="orders-header_date"> Date: </h5>
             <input type="time" placeholder="Enter Date Here" class="orders-input_date">
             <ul class="orders-list_results">
@@ -53,20 +49,17 @@
               </ul>
             <h5 class="orders-header_spent-today"> Amount of Money Spent Today <span class="orders-header_amount-spent"> 00.00 </span></h5>
             <h5 class="orders-header_spent-overall"> Amount of Money Spent Overall <span class="orders-header_amount-spent-overall"> 00.00 </span></h5>
-          </div>
-        </section>
-        <section class="bookings-section">
-            <button class="bookings-button_bookings-tab">Close Bookings Tab</button>
-            <h4 class="bookings-header_bookings-tab">Bookings Tab</h4>
-            <div class="bookings-div_popular">
-              <h5 class="bookings-header_popular-date"> Most Popular Date <span class="bookings-header_date"> 00 / 00 / 00 </span></h5>
-              <h5 class="bookings-header_dates-available"> Dates Available: </h5>
-              <ul class="bookings-list_dates-available">
-                <li class="bookings-list_item"> 00 / 00 / 00 </li>
-                <li class="bookings-list_item"> 00 / 00 / 00  </li>
-                <li class="bookings-list_item"> 00 / 00 / 00  </li>
-              </ul>
-            </div>
+        </div>
+        <div class="fourth-tab">
+            <!-- <button class="bookings-button_bookings-tab">Close Bookings Tab</button> -->
+          <h3 class="bookings-header_bookings-tab"><a href="#">Bookings Tab</a></h3>
+            <h5 class="bookings-header_popular-date"> Most Popular Date <span class="bookings-header_date"> 00 / 00 / 00 </span></h5>
+            <h5 class="bookings-header_dates-available"> Dates Available: </h5>
+            <ul class="bookings-list_dates-available">
+              <li class="bookings-list_item"> 00 / 00 / 00 </li>
+              <li class="bookings-list_item"> 00 / 00 / 00  </li>
+              <li class="bookings-list_item"> 00 / 00 / 00  </li>
+            </ul>
             <div class="bookings-div_past-bookings">
               <h5 class="bookings-header_past-bookings"> Past Bookings: </h5>
               <ul class="bookings-list_past-bookings">
@@ -125,8 +118,11 @@
               </ul>
               <h5 class="bookings-header_food-total">Total: <span> 00.00 </span> dollars</h5>
               <button class="bookings-button_confirm-order">Confirm Order</button>
+            </div>
           </div>
-        </section>
+        </div>  
     </main>
   </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="dist/jquery.accordion.min.js"></script>
 </html>
