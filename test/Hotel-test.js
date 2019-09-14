@@ -58,5 +58,27 @@ describe('hotel', function() {
     expect(hotel.findCustomerBookings()[1]).to.eql([{ userID: 3, date: '2019/09/25', roomNumber: 3 }])
   });
 
+  it('should be able to find a customers past room service orders', function() {
+    expect(hotel.findCustomerOrders()[0]).to.eql([{ 
+      userID: 3,
+      date: '2019/09/02',
+      food: 'Awesome Cotton Sandwich',
+      totalCost: 20.79 }])
+  });
+
+  it('should be able to find a customers future room service orders', function() {
+    expect(hotel.findCustomerOrders()[1]).to.eql([{
+      date: "2019/09/25",
+      food: "Fantastic Cotton Sandwich",
+      totalCost: 17.61, 
+      userID: 3
+    },
+    {
+      date: "2019/9/25",
+      food : "Refined Metal Sandwich",
+      totalCost: 19.3,
+      userID: 3
+    }])
+  });
 
 });

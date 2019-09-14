@@ -39,9 +39,8 @@ class Hotel {
   findCustomerOrders() {
     let pastOrders = [];
     let futureOrders = [];
-    let currentCustomer = this.findCurrentCustomer();
     let allOrders = this.orders.filter(order => {
-      order.userID === currentCustomer.id
+      return order.userID === this.currentCustomer.id
     })
     allOrders.forEach(order => {
       order.date < this.date ? pastOrders.push(order) : futureOrders.push(order)
