@@ -6,11 +6,17 @@ let domUpdates = {
     $('.nav-date_todays-date').text(date);
   },
 
-  appendChosenUserName(hotel) {
-    $('.nav-header_chosen-user').text(hotel.currentCustomer)
+  appendChosenUserName(name) {
+    $('.nav-header_chosen-user').text(name)
+  }, 
+
+  clearInput(input) {
+    $(`.${input}`).val('')
   },
-  
-  
+
+  removeCurrentCustomer() {
+    $('.nav-header_chosen-user').text('').attr('hidden')
+  }
 
 
 
