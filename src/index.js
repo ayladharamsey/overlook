@@ -1,6 +1,7 @@
 //event handling 
 
 import $ from 'jquery';
+// import 'jq-accordion';
 import domUpdates from './domUpdates';
 import Orders from "../src/Orders.js";
 import Bookings from "../src/Bookings.js";
@@ -28,12 +29,17 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
   
 $('.reset-button').click(() => location.reload())
 
+
 $('.customer-button_submit-name').click(() => {
   $('.nav-header_chosen-user').removeAttr('hidden');
   domUpdates.appendChosenUserName($('.customer-input_name').val())
   var input = $(event.target).siblings('input')[0].className; // add this line to other button event handlers 
   domUpdates.clearInput(input)
 })
+
+// $('.accordion').accordion({
+//   collapsible: true, active: true
+// })
   
 function getDate() {
   let today = new Date();
@@ -49,13 +55,14 @@ function getDate() {
     mm = '0' + mm
   }
 
-  let thisDay = mm + '/' + dd + '/' + yyyy;
+  let thisDay = yyyy + '/' + mm + '/' + dd;
   return thisDay;
 }
 
 
 function onLoadHandler() {
   domUpdates.appendDate(date);
+
 }
 
 
