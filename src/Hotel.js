@@ -31,7 +31,7 @@ class Hotel {
       booking.userID === currentCustomer.id
     });
     allBookingsForCustomer.forEach(booking => {
-      booking.date < this.date ? pastOrders.push(order) : futureOrders.push(order);
+      booking.date < this.date ? pastDates.push(booking) : futureDates.push(booking);
     });
     console.log(pastDates, futureDates)
     return [pastDates, futureDates]
