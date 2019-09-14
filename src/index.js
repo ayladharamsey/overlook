@@ -27,9 +27,12 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
   .then(() => onLoadHandler());
   
 $('.reset-button').click(() => location.reload())
+
 $('.customer-button_submit-name').click(() => {
   $('.nav-header_chosen-user').removeAttr('hidden');
   domUpdates.appendChosenUserName($('.customer-input_name').val())
+  var input = $(event.target).siblings('input')[0].className;
+  domUpdates.clearInput(input)
 })
   
 function getDate() {

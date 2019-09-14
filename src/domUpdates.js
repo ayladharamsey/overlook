@@ -7,9 +7,12 @@ let domUpdates = {
   },
 
   appendChosenUserName(name) {
-    console.log(name)
     $('.nav-header_chosen-user').text(name)
   }, 
+
+  clearInput(input) {
+    $(`.${input}`).val('')
+  }
 
 
 
