@@ -29,6 +29,11 @@ body {
     font-weight: 600;
     color: #2F4A57;
   }
+
+  button:hover {
+    background-color:$primary-third;
+    color: #FFFFFF;
+  }
   
   h1 {
     font-family: $display-typeface;
