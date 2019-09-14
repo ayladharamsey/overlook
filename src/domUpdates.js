@@ -6,8 +6,9 @@ let domUpdates = {
     $('.nav-date_todays-date').text(date);
   },
 
-  appendChosenUserName(hotel) {
-    $('.nav-header_chosen-user').text(hotel.findCurrentCustomer())
+  appendChosenUserName(name) {
+    console.log(name)
+    $('.nav-header_chosen-user').text(name)
   }, 
 
 
