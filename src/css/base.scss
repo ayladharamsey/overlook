@@ -1,8 +1,9 @@
-$primary-orange :#D67235;
-$primary-burgundy :#5B1918;
-$primary-coral :#F46966;
-$primary-yellow:#F2BB7B;
-$display-typeface:'Spirax', cursive;
+$primary-background :#F2EEED;
+$primary-secondary :#2F4A57;
+$primary-third :#4F788D;
+$primary-fourth:#7BA6B4;
+$primary-fifth: #A5BFC5;
+$display-typeface:'Glegoo', cursive;
 $secondary-typeface: 'Roboto', sans-serif;
 
 *,
@@ -15,9 +16,40 @@ $secondary-typeface: 'Roboto', sans-serif;
 
 
 body {
-  background-color: $primary-yellow;
+  background-color: $primary-background;
   font-family: $secondary-typeface;
   font-weight: 100;
+
+  button {
+    background-color: $primary-fifth;
+    border-radius: 5px;
+    border: none;
+    width: 10%;
+    height: 25px;
+    font-weight: 600;
+    color: #2F4A57;
+  }
+  
+  h1 {
+    font-family: $display-typeface;
+    font-size: 3em;
+    margin: 10px;
+    color: $primary-third;
+  }
+
+  h3 {
+    color: $primary-secondary;
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 1.3px;
+    margin: 10px;
+  }
+
+  h5 {
+    color: $primary-third;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+  }
 
   nav {
     display: flex;
@@ -33,18 +65,22 @@ body {
       }
     }
 
-  h1 {
-    font-family: $display-typeface;
-    font-size: 3em;
+  main {
+
+    a {
+      text-decoration: none;
+    }
+    
+    input {
+      width: 10%;
+      border-radius: 5px;
+      border-style: none;
+      padding: 5px;
+      margin: 10px;
+    }
   }
 
-  button {
-    background-color: $primary-orange;
-    border-radius: 5px;
-    border: none;
-    width: 100%;
-    height: 25px;
-  }
+
 
   
 }
