@@ -12,6 +12,10 @@ let domUpdates = {
 
   clearInput(input) {
     $(`.${input}`).val('')
+  },
+
+  removeCurrentCustomer() {
+    $('.nav-header_chosen-user').text('').attr('hidden')
   }
 
 

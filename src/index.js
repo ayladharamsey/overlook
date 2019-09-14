@@ -37,6 +37,10 @@ $('.customer-button_submit-name').click(() => {
   domUpdates.clearInput(input)
 })
 
+$('.nav-button_delete-user').click(() => {
+  domUpdates.removeCurrentCustomer();
+})
+
 // $('.accordion').accordion({
 //   collapsible: true, active: true
 // })
