@@ -5,7 +5,6 @@ import testData from '../data/test-data'
 let customer;
 
 
-
 describe('Customer class', function() {
   beforeEach(function() {
     customer = new Customer(testData.users[0].id, testData.users[0].name);

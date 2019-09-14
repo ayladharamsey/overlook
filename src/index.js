@@ -46,7 +46,7 @@ function getDate() {
     mm = '0' + mm
   }
 
-  let thisDay = mm + '/' + dd + '/' + yyyy;
+  let thisDay = yyyy + '/' + mm + '/' + dd;
   return thisDay;
 }
 

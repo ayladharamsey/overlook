@@ -5,35 +5,33 @@ import Orders from "./Orders"
 
 class Hotel {
   constructor(customers, rooms, bookings, orders, date) {
-    this.customers = customers
+    this.customers = customers;
     this.rooms = rooms;
     this.bookings = bookings;
     this.orders = orders;
     this.date = date;
-    this.currentCustomer = this.findCurrentCustomer();
+    this.currentCustomer;
   }
 
-  findCurrentCustomer(id) {
-    return this.customers.find(customer => customer.id === id)
+  findCustomer(id) {
+    this.currentCustomer = this.customers.find(customer => customer.id === id)
   }
 
   createNewCustomer(name) {
     var newId = this.customers.length + 1
-    let customer = new Customer(name, newId)
-    this.customers.push(customer)
+    let customer = new Customer(newId, name)
+    this.customers = this.customers.push(customer)
   }
 
   findCustomerBookings() {
     let pastDates = [];
     let futureDates = [];
-    let currentCustomer = this.findCurrentCustomer();
     let allBookingsForCustomer = this.bookings.filter(booking => {
-      booking.userID === currentCustomer.id
+      return this.currentCustomer.id === booking.userID
     });
     allBookingsForCustomer.forEach(booking => {
       booking.date < this.date ? pastDates.push(booking) : futureDates.push(booking);
     });
-    console.log(pastDates, futureDates)
     return [pastDates, futureDates]
 
   }
