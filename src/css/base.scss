@@ -47,13 +47,16 @@ body {
   }
 
   h5 {
-    color: $primary-third;
+    color: $primary-fourth;
     font-weight: 700;
     letter-spacing: 1.2px;
+    font-size: 1em;
+    margin: 10px;
   }
 
-  span {
-    font-weight: 200;
+  span, li {
+    font-weight: 300;
+    color: $primary-secondary;
 
   }
 
