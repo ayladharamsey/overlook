@@ -7,21 +7,24 @@ let domUpdates = {
   },
 
   appendChosenUserName(name) {
-    $('.nav-header_chosen-user').text(name)
-  }, 
-  appendDateInQuestion(date){
-    $('.main-header_date-in-question').text(date)
+    $('.nav-header_chosen-user').text(name);
+  },
+
+  appendDateInQuestion(date) {
+    $('.main-header_date-in-question').text(date).removeAttr('hidden');
   },
 
   clearInput(input) {
-    $(`.${input}`).val('')
+    $(`.${input}`).val('');
   },
 
   removeCurrentCustomer() {
-    $('.nav-header_chosen-user').text('').attr('hidden')
-  }
+    $('.nav-header_chosen-user').text('').attr('hidden');
+  },
 
-
+  removeDateInQuestion() {
+    $('.main-header_date-in-question').text('').attr('hidden');
+  },
 
 }
 
