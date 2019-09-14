@@ -7,7 +7,7 @@ let domUpdates = {
   },
 
   appendChosenUserName(hotel) {
-    $('.nav-header_chosen-user').text(hotel.findCurrentCustomer())
+    $('.nav-header_chosen-user').text(hotel.currentCustomer)
   },
   
   
