@@ -1,15 +1,21 @@
 import chai from 'chai';
-import spies from 'chai-spies'
-import customer from '../src/Customer'
-import domUpdates from '../src/domUpdates'
 const expect = chai.expect;
+import Customer from '../src/Customer'
+import testData from '../data/test-data'
+let customer;
 
 
-describe('customer', function() {
-    beforeEach(function() {
-        let customer = new Customer();
-      });
-    it('should have an id', function() {
-      expect(true).to.equal(true);
-    })
+
+describe('Customer class', function() {
+  beforeEach(function() {
+    customer = new Customer(testData.users[0].id, testData.users[0].name);
   });
+
+  it('should have an id', function() {
+    expect(customer.id).to.equal(1);
+  })
+
+  it('should have a name', function() {
+    expect(customer.name).to.equal('Ayla Dharamsey');
+  })
+});
