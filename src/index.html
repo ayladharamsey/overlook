@@ -2,14 +2,13 @@
 <html lang="en-US">
   <head>
     <link rel="stylesheet" type="text/css" src="css/base.scss">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300|Spirax&display=swap" rel="stylesheet">
-    <title>Hotel App</title>
+    <link href="https://fonts.googleapis.com/css?family=Glegoo:400,700|Roboto:100,300,400,500,700&display=swap" rel="stylesheet">    <title>Hotel App</title>
     <meta charset="UTF-8">
   </head>
   <body>
     <nav>
       <div class="nav-div_left-nav">
-        <button class="nav-button_delete-user"> Delete User </button>
+        <a class="nav-button_delete-user" href="#">X</a>
         <h3 class="nav-header_chosen-user" hidden> Chosen User Name</h3>
       </div>
       <h3 class="nav-date_todays-date">00 / 00 / 00</h3>
@@ -25,9 +24,9 @@
           <h5 class="main-header_date"> Date:</h5>
           <input type="date" placeholder="Enter Date Here" class="main-input_date">
           <button class="main-button_submit-date">Submit</button>
-          <button class="main-button_remove-date">Remove Date</button>
-          <h5 class="main-header_total-revenue"> Total Revenue <span class="main-header_dollars">100</span> dollars</h5>
-          <h5 class="main-header_percent-occupied"> Percent Rooms Occupied <span class="main-header_percent-number">35</span> percent</h5>
+          <button class="main-button_remove-date">X</button>
+          <h5 class="main-header_total-revenue"> Total Revenue <span>100</span> dollars</h5>
+          <h5 class="main-header_percent-occupied"> Percent Rooms Occupied <span>35</span> percent</h5>
         </div>
         <div class="second-tab">
         <!-- <button class="customer-button_customer-tab">Close Customer Tab</button> -->
@@ -52,13 +51,13 @@
               <li class="orders-list_item"> order 2 </li>
               <li class="orders-list_item"> order 3 </li>
               </ul>
-            <h5 class="orders-header_spent-today"> Amount of Money Spent Today <span class="orders-header_amount-spent"> 00.00 </span></h5>
-            <h5 class="orders-header_spent-overall"> Amount of Money Spent Overall <span class="orders-header_amount-spent-overall"> 00.00 </span></h5>
+            <h5 class="orders-header_spent-today"> Amount of Money Spent Today <span> 00.00 </span></h5>
+            <h5 class="orders-header_spent-overall"> Amount of Money Spent Overall <span> 00.00 </span></h5>
         </div>
         <div class="fourth-tab">
             <!-- <button class="bookings-button_bookings-tab">Close Bookings Tab</button> -->
           <h3 class="bookings-header_bookings-tab"><a href="#">Bookings Tab</a></h3>
-            <h5 class="bookings-header_popular-date"> Most Popular Date <span class="bookings-header_date"> 00 / 00 / 00 </span></h5>
+            <h5 class="bookings-header_popular-date"> Most Popular Date <span> 00 / 00 / 00 </span></h5>
             <h5 class="bookings-header_dates-available"> Dates Available: </h5>
             <ul class="bookings-list_dates-available">
               <li class="bookings-list_item"> 00 / 00 / 00 </li>
@@ -99,10 +98,10 @@
             </div>
             <div class="bookings-div_room-details">
               <button class="bookings-button_back"> Back </button>
-              <h5 class="bookings-header_room-type"> Type: <span class="bookings-header_room"> example </span></h5>
-              <h5 class="bookings-header_beds"> Number of Beds: <span class="bookings-header_bed-number"> example </span></h5>
-              <h5 class="bookings-header_bed-size"> Bed Size: <span class="bookings-header_bed-size-number"> example </span></h5>
-              <h5 class="bookings-header_bidet"> Bidet: <span class="bookings-header_bidet-name"> example </span></h5>
+              <h5 class="bookings-header_room-type"> Type: <span> example </span></h5>
+              <h5 class="bookings-header_beds"> Number of Beds: <span> example </span></h5>
+              <h5 class="bookings-header_bed-size"> Bed Size: <span> example </span></h5>
+              <h5 class="bookings-header_bidet"> Bidet: <span> example </span></h5>
               <button class="bookings-button_choose">Choose</button>
             </div>
             <div class="bookings-div_add-food">
@@ -110,15 +109,15 @@
               <ul class="bookings_list-food">
                 <li class="bookings_list-food-item">
                   <input type="checkbox" class="bookings-input_food-item">
-                  <h5 class="bookings-header_food-item"> Food Item 1 <span class="bookings-header_food-cost"> 10 </span> dollars</h5>
+                  <h5 class="bookings-header_food-item"> Food Item 1 <span> 10 </span> dollars</h5>
                 </li>
                 <li class="bookings_list-food-item">
                   <input type="checkbox" class="bookings-input_food-item">
-                  <h5 class="bookings-header_food-item"> Food Item 2 <span class="bookings-header_food-cost"> 10 </span> dollars</h5>
+                  <h5 class="bookings-header_food-item"> Food Item 2 <span> 10 </span> dollars</h5>
                 </li>
                 <li class="bookings_list-food-item">
                   <input type="checkbox" class="bookings-input_food-item">
-                  <h5 class="bookings-header_food-item"> Food Item 3 <span class="bookings-header_food-cost"> 10 </span> dollars</h5>
+                  <h5 class="bookings-header_food-item"> Food Item 3 <span> 10 </span> dollars</h5>
                 </li>
               </ul>
               <h5 class="bookings-header_food-total">Total: <span> 00.00 </span> dollars</h5>
