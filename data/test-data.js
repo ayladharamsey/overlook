@@ -122,7 +122,7 @@ let testData = {
       costPerNight: 200.05 }    
   ],
   bookings: [
-    { userID: 1, date: '2019/09/13', roomNumber: 1 },
+    { userID: 1, date: '2019/09/14', roomNumber: 1 },
     { userID: 2, date: '2019/09/20', roomNumber: 2 },
     { userID: 3, date: '2019/09/25', roomNumber: 3 },
     { userID: 1, date: '2019/09/30', roomNumber: 4 },
@@ -136,7 +136,7 @@ let testData = {
     { userID: 6, date: '2019/09/21', roomNumber: 12 },
     { userID: 7, date: '2019/09/22', roomNumber: 13 },
     { userID: 8, date: '2019/09/06', roomNumber: 14 },
-    { userID: 9, date: '2019/09/24', roomNumber: 15 },
+    { userID: 9, date: '2019/09/14', roomNumber: 15 },
     { userID: 10, date: '2019/09/22', roomNumber: 16 },
     { userID: 10, date: '2019/09/01', roomNumber: 17 },
     { userID: 1, date: '2019/09/30', roomNumber: 18 }
