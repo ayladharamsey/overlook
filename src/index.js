@@ -52,6 +52,8 @@ $('.main-button_remove-date').click(() => {
   domUpdates.removeDateInQuestion()
   })
 
+$('.customer-button_create-customer').click(() => createNewCustomer($('.customer-input_name').val()));
+
 // $('.accordion').accordion({
 //   collapsible: true, active: true
 // })
@@ -85,8 +87,17 @@ function determineIfCurrentCustomer(name) {
       return hotel.findCustomer(customer.id);
     } else {
       domUpdates.invalidCustomerName(name);//need to write
+
     }
   })
+}
+
+function createNewCustomer(name) { 
+  var newId = hotel.customers.length + 1;
+  let customer = new Customer(newId, name);
+  hotel.customers.push(customer);
+  var potato = hotel.findCustomer(newId);
+  console.log(potato)
 }
 
 

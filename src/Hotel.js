@@ -18,13 +18,6 @@ class Hotel {
     return this.currentCustomer;
   }
 
-  createNewCustomer(name) { // move to customer or to index.js
-    var newId = this.customers.length + 1
-    let customer = new Customer(newId, name)
-    this.customers.push(customer)
-    this.findCustomer(newId)
-  }
-
   findCustomerBookings(date = this.todaysDate) { // move to customer 
     let pastDates = [];
     let futureDates = [];
