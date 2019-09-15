@@ -25,7 +25,7 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
     let bookings = allData.find(data => data.hasOwnProperty('bookings')).bookings;
     let roomServices = allData.find(data => data.hasOwnProperty('roomServices')).roomServices;
     hotel = new Hotel(customers, rooms, bookings, roomServices, date);
-    })
+  })
   .then(() => onLoadHandler());
   
 $('.reset-button').click(() => location.reload())
@@ -50,7 +50,7 @@ $('.main-button_submit-date').click(() => {
 
 $('.main-button_remove-date').click(() => {
   domUpdates.removeDateInQuestion()
-  })
+})
 
 $('.customer-button_create-customer').click(() => createNewCustomer($('.customer-input_name').val()));
 
@@ -84,10 +84,9 @@ function onLoadHandler() {
 function determineIfCurrentCustomer(name) {
   hotel.customers.filter(customer => { 
     if (customer.name.includes(name.split(' ')[0] || name.split(' ')[1])) {
-      return findAllCustomerInfo(customer.id);;
+      return findAllCustomerInfo(customer.id);
     } else {
       domUpdates.invalidCustomerName(name);//need to write
-      console.log('YEW WRONG FA DAT')
     }
   })
 }
@@ -101,10 +100,9 @@ function createNewCustomer(name) {
 
 function findAllCustomerInfo(customerId) {
   hotel.findCustomer(customerId);
-  hotel.findCustomerBookings(date);
-  var tito = hotel.findCustomerOrders(date)
-  console.log(tito)
-  // going to run all functions within the customer class that find the customer's hotel info 
+  let bookings = hotel.findCustomerBookings(date);
+  let orders = hotel.findCustomerOrders(date)
+  domUpdates.appendChosenCustomerInformation(bookings, orders)
 }
 
 

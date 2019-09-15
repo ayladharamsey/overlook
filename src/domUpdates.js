@@ -27,9 +27,22 @@ let domUpdates = {
   },
 
   invalidCustomerName(name) {
-// append warning if invalid name is put into customer search input
-//call create new user with unknown name fn 
+  // append warning if invalid name is put into customer search input
+  //call create new user with unknown name fn 
   }, 
+
+  appendChosenCustomerInformation(bookings, orders) {
+    this.appendChosenCustomerOrders(orders);
+    this.appendChoisenCustomerBookings(bookings);
+  },
+
+  appendChosenCustomerOrders(orders) {
+    //will append currentCustomer's orders
+  },
+
+  appendChosenCustomerBookings(bookings) {
+    //will append currentCustomer's bookings
+  }
 
 }
 
