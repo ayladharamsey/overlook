@@ -7,6 +7,14 @@ class Bookings {
     this.roomNumber = roomNumber;
   }
 
+  findMostPopularBookingDate() {
+    //
+  }
+
+  findDateWithMostRoomsAvailable(date) {
+
+  }
+  
   
 }
 

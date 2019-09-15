@@ -7,6 +7,19 @@ class Orders {
     this.food = food;
     this.cost = cost;
   }
+
+  createNewOrder() {
+
+  }
+
+  totalSpendOnRoomService(customer) {
+    // for a specific customer
+  }
+
+  totalPerDaySpentOnRoomService(customer, date) {
+    // for specific customer on specific day
+  }
+  
 }
 
 

@@ -20,19 +20,22 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
   .then(dataSet => Promise.all(dataSet.map(dataSet => dataSet.json())))
   .then(allData => {
     let customers = allData.find(data => data.hasOwnProperty('users')).users;
+    console.log(customers)
     let rooms = allData.find(data => data.hasOwnProperty('rooms')).rooms;
     let bookings = allData.find(data => data.hasOwnProperty('bookings')).bookings;
     let roomServices = allData.find(data => data.hasOwnProperty('roomServices')).roomServices;
     hotel = new Hotel(customers, rooms, bookings, roomServices, date);
-    })
+  })
   .then(() => onLoadHandler());
   
 $('.reset-button').click(() => location.reload())
 
 
 $('.customer-button_submit-name').click(() => {
+  var name = $('.customer-input_name').val()
   $('.nav-header_chosen-user').removeAttr('hidden');
-  domUpdates.appendChosenUserName($('.customer-input_name').val())
+  domUpdates.appendChosenUserName(name)
+  determineIfCurrentCustomer(name);
   var input = $(event.target).siblings('input')[0].className; // add this line to other button event handlers 
   domUpdates.clearInput(input)
 })
@@ -47,7 +50,9 @@ $('.main-button_submit-date').click(() => {
 
 $('.main-button_remove-date').click(() => {
   domUpdates.removeDateInQuestion()
-  })
+})
+
+$('.customer-button_create-customer').click(() => createNewCustomer($('.customer-input_name').val()));
 
 // $('.accordion').accordion({
 //   collapsible: true, active: true
@@ -75,6 +80,29 @@ function getDate() {
 function onLoadHandler() {
   domUpdates.appendDate(date);
 
+}
+function determineIfCurrentCustomer(name) {
+  hotel.customers.filter(customer => { 
+    if (customer.name.includes(name.split(' ')[0] || name.split(' ')[1])) {
+      return findAllCustomerInfo(customer.id);
+    } else {
+      domUpdates.invalidCustomerName(name);//need to write
+    }
+  })
+}
+
+function createNewCustomer(name) { 
+  var newId = hotel.customers.length + 1;
+  let customer = new Customer(newId, name);
+  hotel.customers.push(customer);
+  hotel.findCustomer(newId);// do i want this to return out?
+}
+
+function findAllCustomerInfo(customerId) {
+  hotel.findCustomer(customerId);
+  let bookings = hotel.findCustomerBookings(date);
+  let orders = hotel.findCustomerOrders(date)
+  domUpdates.appendChosenCustomerInformation(bookings, orders)
 }
 
 
