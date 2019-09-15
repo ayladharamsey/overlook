@@ -10,6 +10,11 @@ class Bookings {
   findMostPopularBookingDate() {
     //
   }
+
+  findDateWithMostRoomsAvailable(date) {
+
+  }
+  
   
 }
 

@@ -4,6 +4,7 @@ class Customer {
     this.name = name;
   }
 
+
 }
 
 export default Customer;
