@@ -84,8 +84,7 @@ function determineIfCurrentCustomer(name) {
     if (customer.name.includes(name.split(' ')[0] || name.split(' ')[1])) {
       return hotel.findCustomer(customer.id);
     } else {
-      domUpdates.invalidCustomerName(name);
-      console.log('wowza')
+      domUpdates.invalidCustomerName(name);//need to write
     }
   })
 }
