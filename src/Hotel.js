@@ -20,7 +20,8 @@ class Hotel {
   createNewCustomer(name) {
     var newId = this.customers.length + 1
     let customer = new Customer(newId, name)
-    this.customers = this.customers.push(customer)
+    this.customers.push(customer)
+    this.findCustomer(newId)
   }
 
   findCustomerBookings() {
