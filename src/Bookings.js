@@ -7,6 +7,11 @@ class Bookings {
     this.roomNumber = roomNumber;
   }
 
+  findMostPopularBookingDate() {
+    this.bookings.sort((a,b) => {
+      return a.date - b.date 
+    })
+  }
   
 }
 

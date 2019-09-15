@@ -7,6 +7,11 @@ class Orders {
     this.food = food;
     this.cost = cost;
   }
+
+  createNewOrder() {
+
+  }
+  
 }
 
 
