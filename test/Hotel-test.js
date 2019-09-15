@@ -88,4 +88,17 @@ describe('hotel', function() {
     ])
   });
 
+  it('should be able to find all orders for todays date', function() {
+    expect(hotel.findDailyOrdersAllCustomers()).to.eql([
+      { userID: 1,
+        date: '2019/09/14',
+        food: 'Practical Concrete Sandwich',
+        totalCost: 13.55 },
+      { userID: 9,
+        date: '2019/09/14',
+        food: 'Refined Cotton Sandwich',
+        totalCost: 11.67 },
+    ])
+  });
+
 });

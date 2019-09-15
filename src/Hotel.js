@@ -53,6 +53,12 @@ class Hotel {
       return booking.date === this.todaysDate
     })
   }
+
+  findDailyOrdersAllCustomers() { // how do i test this dynamically every today'sDate without changing the data?
+    return this.orders.filter(order => {
+      return order.date === this.todaysDate
+    })
+  }
 }
 
 

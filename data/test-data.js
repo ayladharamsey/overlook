@@ -144,7 +144,7 @@ let testData = {
   
   roomServices: [
     { userID: 1,
-      date: '2019/09/13',
+      date: '2019/09/14',
       food: 'Practical Concrete Sandwich',
       totalCost: 13.55 },
     { userID: 1,
@@ -228,11 +228,11 @@ let testData = {
       food: 'Practical Granite Sandwich',
       totalCost: 15.62 },
     { userID: 9,
-      date: '2019/09/01',
+      date: '2019/09/14',
       food: 'Refined Cotton Sandwich',
       totalCost: 11.67 },
-    { userID: 9,
-      date: '2019/09/22',
+    { userID: 1,
+      date: '2019/09/30',
       food: 'Tasty Wooden Sandwich',
       totalCost: 19.55 },
     { userID: 10,
