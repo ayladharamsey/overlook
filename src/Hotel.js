@@ -15,16 +15,17 @@ class Hotel {
 
   findCustomer(id) {
     this.currentCustomer = this.customers.find(customer => customer.id === id)
+    return this.currentCustomer;
   }
 
-  createNewCustomer(name) {
+  createNewCustomer(name) { // move to customer or to index.js
     var newId = this.customers.length + 1
     let customer = new Customer(newId, name)
     this.customers.push(customer)
     this.findCustomer(newId)
   }
 
-  findCustomerBookings(date = this.todaysDate) {
+  findCustomerBookings(date = this.todaysDate) { // move to customer 
     let pastDates = [];
     let futureDates = [];
     let allBookingsForCustomer = this.bookings.filter(booking => {
@@ -36,7 +37,7 @@ class Hotel {
     return [pastDates, futureDates]
   }
 
-  findCustomerOrders(date = this.todaysDate) {
+  findCustomerOrders(date = this.todaysDate) { // move to customer
     let pastOrders = [];
     let futureOrders = [];
     let allOrders = this.orders.filter(order => {
@@ -59,6 +60,24 @@ class Hotel {
       return order.date === date;
     })
   }
+
+  findUnoccupiedRooms() {
+
+  }
+
+  findOccupiedRooms() {
+
+  }
+
+  totalRevenue() {
+
+  }
+
+  determinePercentOccupied() {
+
+  }
+
+  
 
 
 

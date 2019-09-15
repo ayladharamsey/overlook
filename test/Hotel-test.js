@@ -50,15 +50,15 @@ describe('hotel', function() {
     })
   });
 
-  it('should be able to find a customers past booking information', function() {
+  it('should be able to find a customers past booking information', function() { // move to customer
     expect(hotel.findCustomerBookings()[0]).to.eql([{ userID: 3, date: '2019/09/02', roomNumber: 6 }])
   });
 
-  it('should be able to find a customers future booking information', function() {
+  it('should be able to find a customers future booking information', function() { // move to customer
     expect(hotel.findCustomerBookings()[1]).to.eql([{ userID: 3, date: '2019/09/25', roomNumber: 3 }])
   });
 
-  it('should be able to find a customers past room service orders', function() {
+  it('should be able to find a customers past room service orders', function() { // move to customer
     expect(hotel.findCustomerOrders()[0]).to.eql([{ 
       userID: 3,
       date: '2019/09/02',
@@ -66,7 +66,7 @@ describe('hotel', function() {
       totalCost: 20.79 }])
   });
 
-  it('should be able to find a customers future room service orders', function() {
+  it('should be able to find a customers future room service orders', function() { // move to customer
     expect(hotel.findCustomerOrders()[1]).to.eql([{
       date: "2019/09/25",
       food: "Fantastic Cotton Sandwich",

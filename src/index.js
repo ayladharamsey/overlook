@@ -20,6 +20,7 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
   .then(dataSet => Promise.all(dataSet.map(dataSet => dataSet.json())))
   .then(allData => {
     let customers = allData.find(data => data.hasOwnProperty('users')).users;
+    console.log(customers)
     let rooms = allData.find(data => data.hasOwnProperty('rooms')).rooms;
     let bookings = allData.find(data => data.hasOwnProperty('bookings')).bookings;
     let roomServices = allData.find(data => data.hasOwnProperty('roomServices')).roomServices;
@@ -31,8 +32,10 @@ $('.reset-button').click(() => location.reload())
 
 
 $('.customer-button_submit-name').click(() => {
+  var name = $('.customer-input_name').val()
   $('.nav-header_chosen-user').removeAttr('hidden');
-  domUpdates.appendChosenUserName($('.customer-input_name').val())
+  domUpdates.appendChosenUserName(name)
+  determineIfCurrentCustomer(name);
   var input = $(event.target).siblings('input')[0].className; // add this line to other button event handlers 
   domUpdates.clearInput(input)
 })
@@ -75,6 +78,16 @@ function getDate() {
 function onLoadHandler() {
   domUpdates.appendDate(date);
 
+}
+function determineIfCurrentCustomer(name) {
+  hotel.customers.filter(customer => { 
+    if (customer.name.includes(name.split(' ')[0] || name.split(' ')[1])) {
+      return hotel.findCustomer(customer.id);
+    } else {
+      domUpdates.invalidCustomerName(name);
+      console.log('wowza')
+    }
+  })
 }
 
 
