@@ -8,9 +8,7 @@ class Bookings {
   }
 
   findMostPopularBookingDate() {
-    this.bookings.sort((a,b) => {
-      return a.date - b.date 
-    })
+    //
   }
   
 }
