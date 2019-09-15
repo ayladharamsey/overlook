@@ -1,9 +1,13 @@
 import domUpdates from "./domUpdates";
 
 class Bookings {
-  constructor() {
-          
+  constructor(userID, bookingDate, roomNumber) {
+    this.userID = userID;
+    this.bookingDate = bookingDate;
+    this.roomNumber = roomNumber;
   }
+
+  
 }
 
 export default Bookings;

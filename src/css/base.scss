@@ -74,10 +74,16 @@ body {
       width: 25%;
       }
     .nav-button_delete-user {
-      width: 50%;
       margin: 20px;
-      }
+	    height:100%;
+      width: 100%;
+      position: relative;
+      box-sizing: border-box;
+      display: inline-block;
+      color: #2F4A57;
+      
     }
+  }
 
   main {
 
@@ -94,7 +100,4 @@ body {
     }
   }
 
-
-
-  
 }
