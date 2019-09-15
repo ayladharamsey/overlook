@@ -18,7 +18,7 @@ class Hotel {
     return this.currentCustomer;
   }
 
-  findCustomerBookings(date = this.todaysDate) { // move to customer 
+  findCustomerBookings(date = this.todaysDate) {  
     let pastDates = [];
     let futureDates = [];
     let allBookingsForCustomer = this.bookings.filter(booking => {
@@ -30,7 +30,7 @@ class Hotel {
     return [pastDates, futureDates]
   }
 
-  findCustomerOrders(date = this.todaysDate) { // move to customer
+  findCustomerOrders(date = this.todaysDate) { // this needs to be tested
     let pastOrders = [];
     let futureOrders = [];
     let allOrders = this.orders.filter(order => {

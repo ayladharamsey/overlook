@@ -84,10 +84,10 @@ function onLoadHandler() {
 function determineIfCurrentCustomer(name) {
   hotel.customers.filter(customer => { 
     if (customer.name.includes(name.split(' ')[0] || name.split(' ')[1])) {
-      return hotel.findCustomer(customer.id);
+      return findAllCustomerInfo(customer.id);;
     } else {
       domUpdates.invalidCustomerName(name);//need to write
-
+      console.log('YEW WRONG FA DAT')
     }
   })
 }
@@ -96,8 +96,15 @@ function createNewCustomer(name) {
   var newId = hotel.customers.length + 1;
   let customer = new Customer(newId, name);
   hotel.customers.push(customer);
-  var potato = hotel.findCustomer(newId);
-  console.log(potato)
+  hotel.findCustomer(newId);// do i want this to return out?
+}
+
+function findAllCustomerInfo(customerId) {
+  hotel.findCustomer(customerId);
+  hotel.findCustomerBookings(date);
+  var tito = hotel.findCustomerOrders(date)
+  console.log(tito)
+  // going to run all functions within the customer class that find the customer's hotel info 
 }
 
 
