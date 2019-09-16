@@ -54,12 +54,9 @@ class Hotel {
     })
   }
 
-  findUnoccupiedRooms() {
-
-  }
-
-  findOccupiedRooms() {
-
+  findUnoccupiedRooms(date = this.todaysDate) {
+    let roomsBookedForDate = this.findDailyBookingsAllCustomers().map(booking => booking.roomNumber);
+    return this.rooms.filter(room => !roomsBookedForDate.includes(room.number));
   }
 
   totalRevenue() {
