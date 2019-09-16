@@ -10,9 +10,8 @@ class Orders {
 
   }
 
-  totalRevenuePerDay(orders, date) {
-    console.log(orders)
-    let costs = orders.filter(order => order.date === date).map(order => order.totalCost);
+  totalRevenuePerDay() {
+    let costs = this.orders.filter(order => order.date === this.todaysDate).map(order => order.totalCost);
     return costs.reduce((totalCost, eachCost) => {
       totalCost += eachCost
       return totalCost
