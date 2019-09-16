@@ -54,18 +54,18 @@ class Hotel {
     })
   }
 
-  findUnoccupiedRooms(date = this.todaysDate) {
+  findUnoccupiedRooms(date = this.todaysDate) { //move to bookings
     let roomsBookedForDate = this.findDailyBookingsAllCustomers().map(booking => booking.roomNumber);
     return this.rooms.filter(room => !roomsBookedForDate.includes(room.number));
   }
 
-  determinePercentOccupied() {
+  determinePercentOccupied() { // move to bookings
     let numberOfRooms = this.rooms.length 
     let roomsBookedForDate = this.findDailyBookingsAllCustomers().length;
     return Math.floor((roomsBookedForDate / numberOfRooms) * 100) 
   }
 
-  totalRevenue() {
+  totalRevenue() { // maybe breakout into separate classes
     let roomsBookedForDate = this.findDailyBookingsAllCustomers().map(booking => booking.roomNumber);
     let roomCosts = this.rooms.filter(room => roomsBookedForDate.includes(room.number)).map(room => room.costPerNight)
     let orderCostsForDate = this.findDailyOrdersAllCustomers().map(order => order.totalCost)
