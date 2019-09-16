@@ -234,4 +234,8 @@ describe('hotel', function() {
     ])
   });
 
+  it('should be able to return the percent occupied', function() {
+    expect(hotel.determinePercentOccupied()).to.equal(11);
+  });
+
 });

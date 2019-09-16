@@ -59,13 +59,17 @@ class Hotel {
     return this.rooms.filter(room => !roomsBookedForDate.includes(room.number));
   }
 
+  determinePercentOccupied() {
+    let numberOfRooms = this.rooms.length 
+    let roomsBookedForDate = this.findDailyBookingsAllCustomers().length;
+    return Math.floor((roomsBookedForDate / numberOfRooms) * 100) 
+
+  }
+
   totalRevenue() {
 
   }
 
-  determinePercentOccupied() {
-
-  }
 
   
 
