@@ -42,6 +42,10 @@ let domUpdates = {
 
   appendChosenCustomerBookings(bookings) {
     //will append currentCustomer's bookings
+  }, 
+
+  totalRevenuePerDay() {
+    // will append the revenue per day for all orders 
   }
 
 }

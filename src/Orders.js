@@ -1,11 +1,9 @@
 import domUpdates from "./domUpdates";
 
 class Orders {
-  constructor(userID, serviceDate, food, cost) {
-    this.userID = userID;
-    this.serviceDate = serviceDate;
-    this.food = food;
-    this.cost = cost;
+  constructor(todaysDate, orders) {
+    this.todaysDate = todaysDate;
+    this.orders = orders;
   }
 
   createNewOrder() {
@@ -13,7 +11,12 @@ class Orders {
   }
 
   totalRevenuePerDay(orders, date) {
-    //all revenue for a specific date
+    console.log(orders)
+    let costs = orders.filter(order => order.date === date).map(order => order.totalCost);
+    return costs.reduce((totalCost, eachCost) => {
+      totalCost += eachCost
+      return totalCost
+    }, 0)
   }
 
   findTotalSpendOnRoomService(orders, id) {

@@ -15,6 +15,10 @@ let bookingsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/boo
 let roomServicesData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices'); 
 let date = getDate();
 let hotel = 'potato';
+let bookings;
+let orders;
+// let customer; not sure if i need this yet 
+
 
 Promise.all([customersData, roomsData, bookingsData, roomServicesData])
   .then(dataSet => Promise.all(dataSet.map(dataSet => dataSet.json())))
@@ -25,6 +29,8 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
     let bookings = allData.find(data => data.hasOwnProperty('bookings')).bookings;
     let roomServices = allData.find(data => data.hasOwnProperty('roomServices')).roomServices;
     hotel = new Hotel(customers, rooms, bookings, roomServices, date);
+    orders = new Orders(date, roomServices);
+    bookings = new Bookings(date, bookings, rooms)
   })
   .then(() => onLoadHandler());
   
@@ -79,6 +85,7 @@ function getDate() {
 
 function onLoadHandler() {
   domUpdates.appendDate(date);
+  defaultOrdersTab();
 
 }
 function determineIfCurrentCustomer(name) {
@@ -100,9 +107,13 @@ function createNewCustomer(name) {
 
 function findAllCustomerInfo(customerId) {
   hotel.findCustomer(customerId);
-  let bookings = hotel.findCustomerBookings(date);
-  let orders = hotel.findCustomerOrders(date)
+  bookings = hotel.findCustomerBookings(date);
+  orders = hotel.findCustomerOrders(date)
   domUpdates.appendChosenCustomerInformation(bookings, orders)
 }
  
+
+function defaultOrdersTab() {
+  .totalRevenuePerDay(orders, date);
+}
   

@@ -1,10 +1,10 @@
 import domUpdates from "./domUpdates";
 
 class Bookings {
-  constructor(userID, bookingDate, roomNumber) {
-    this.userID = userID;
-    this.bookingDate = bookingDate;
-    this.roomNumber = roomNumber;
+  constructor(todaysDate, bookings, rooms) {
+    this.todaysDate = todaysDate;
+    this.bookings = bookings;
+    this.rooms = rooms; 
   }
 
   findMostPopularBookingDate() {

@@ -31,4 +31,8 @@ describe('orders', function() {
   it('should know how much the total order cost ', function() {
     expect(order.cost).to.equal(13.55);
   });
+
+  it('should calculate the total revenue of all orders for a date', function() {
+    expect(order.totalRevenuePerDay()).to.equal();
+  });
 });
