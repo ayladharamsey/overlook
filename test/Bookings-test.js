@@ -316,5 +316,26 @@ describe('bookings', function() {
     expect(booking.findMostPopularBookingDate()).to.eql({ eachDate: '2019/09/25', count: 3 });
   });
 
+  it('should be able to determine how many stays are in each room', function() { 
+    expect(booking.findDateTally()).to.eql({
+      '2019/09/14': 2,
+      '2019/09/20': 1,
+      '2019/09/25': 3,
+      '2019/09/30': 3,
+      '2019/09/02': 2,
+      '2019/09/23': 1,
+      '2019/09/27': 1,
+      '2019/09/21': 1,
+      '2019/09/22': 2,
+      '2019/09/06': 1,
+      '2019/09/01': 1
+    });
+  });
+
+  it('should find the date with the most available rooms', function() { 
+    hotel = new Hotel(testData.users, testData.rooms, testData.bookings, testData.roomServices, '2019/09/14')
+    expect(booking.findDateWithMostRoomsAvailable(hotel)).to.eql({ date: '2019/09/14', count: '2' });
+  });
+
 
 });

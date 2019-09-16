@@ -7,7 +7,7 @@ class Bookings {
     this.rooms = rooms; 
   }
 
-  findMostPopularBookingDate() {
+  findDateTally() {
     let dateTally = this.bookings.reduce((allDates, eachBooking) => {
       if (!allDates[eachBooking.date]) {
         allDates[eachBooking.date] = 1;
@@ -16,6 +16,11 @@ class Bookings {
       }
       return allDates
     }, {})
+    return dateTally
+  }
+
+  findMostPopularBookingDate() {
+    let dateTally = this.findDateTally();
 
     let popularDate = Object.keys(dateTally).reduce((bestDate, eachDate) => {
       if (dateTally[eachDate] > bestDate.count) {
@@ -25,13 +30,23 @@ class Bookings {
         }
       }
       return bestDate
-    }, {eachDate: '', count: 1})
-    
+    }, {date: '', count: 1})
+
     return popularDate
   }
 
-  findDateWithMostRoomsAvailable(date) {
-
+  findDateWithMostRoomsAvailable(hotel) {
+    let dateBookedLeast;
+    let dateTally = this.findDateTally();
+    let totalBookingsToday = hotel.findDailyBookingsAllCustomers(this.todaysDate);
+    let leastBookedDate = Object.keys(dateTally).reduce((worstDate, eachDate) => {
+      if (totalBookingsToday.length < worstDate) {
+        dateBookedLeast = eachDate;
+        worstDate = totalBookingsToday.length;
+      }
+      return worstDate;
+    }, 51)
+    return {date: `${dateBookedLeast}`, count: `${leastBookedDate}` };
   }
 
   findCustomerBookings(customer, date = this.todaysDate) {  
