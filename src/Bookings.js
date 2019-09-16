@@ -34,6 +34,17 @@ class Bookings {
     return [pastDates, futureDates, todaysDates]
   }
 
+  findUnoccupiedRooms(hotel, date = this.todaysDate) { 
+    let roomsBookedForDate = hotel.findDailyBookingsAllCustomers(date).map(booking => booking.roomNumber);
+   return this.rooms.filter(room => !roomsBookedForDate.includes(room.number));
+  }
+
+  determinePercentOccupied(hotel, date = this.todaysDate) { 
+    let numberOfRooms = this.rooms.length 
+    let roomsBookedForDate = hotel.findDailyBookingsAllCustomers(date).length;
+    return Math.floor((roomsBookedForDate / numberOfRooms) * 100) 
+  }
+
   
 }
 

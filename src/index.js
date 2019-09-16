@@ -113,6 +113,8 @@ function findAllCustomerInfo(customerId) {
 
 function defaultOrdersTab() {
   orders.totalRevenuePerDay(orders, date);
+  bookings.findUnoccupiedRooms(hotel, date)
+  bookings.determinePercentOccupied(hotel, date);
 }
 
 
