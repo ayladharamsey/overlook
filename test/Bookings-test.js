@@ -24,6 +24,18 @@ describe('bookings', function() {
     expect(booking.rooms).to.equal(testData.rooms);
   });
 
+  it('should be able to find a customers past booking information', function() { 
+    expect(booking.findCustomerBookings(1, '2019/09/14')[0]).to.eql([])
+  });
+
+  // it('should be able to find a customers future booking information', function() { 
+  //   expect(booking.findCustomerBookings(1)[1]).to.eql([{ userID: 1, date: '2019/09/30', roomNumber: 4 },
+  //   { userID: 1, date: '2019/09/30', roomNumber: 18 }])
+  // });
+
+  // it('should be able to find a customers todays booking information', function() { 
+  //   expect(booking.findCustomerBookings(1)[2]).to.eql([{ userID: 1, date: '2019/09/14', roomNumber: 1 }])
+  // });
   
 
 

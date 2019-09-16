@@ -15,7 +15,7 @@ class Orders {
     let futureOrders = [];
     let todaysOrders = [];
     let allOrders = this.orders.filter(order => {
-      return order.userID === customer
+      return order.userID === customer;
     })
     allOrders.forEach(order => {
       if(order.date < date) {
