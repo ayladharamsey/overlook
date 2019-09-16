@@ -9,20 +9,22 @@ let booking;
 describe('bookings', function() {
   
   beforeEach(function() {
-    booking = new Bookings(testData.bookings[0].userID, testData.bookings[0].date, testData.bookings[0].roomNumber)
+    booking = new Bookings('2019/09/14', testData.bookings, testData.rooms)
   });
   
-  it('should know the user that booked the room', function() {
-    expect(booking.userID).to.equal(1);
+  it('should know the date', function() {
+    expect(booking.todaysDate).to.equal('2019/09/14');
   });
 
-  it('should know the date that the room is booked for', function() {
-    expect(booking.bookingDate).to.equal('2019/09/14');
+  it('should know about all bookings information', function() { // is this a bad test? having it test the thing it's hooked up to rather than that actual data?
+    expect(booking.bookings).to.equal(testData.bookings);
   });
 
-  it('should know the room number of the room that is booked', function() {
-    expect(booking.roomNumber).to.equal(1);
+  it('should know about all bookings information', function() { // same question as above
+    expect(booking.rooms).to.equal(testData.rooms);
   });
+
+  
 
 
 });
