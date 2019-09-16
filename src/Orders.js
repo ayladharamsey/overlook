@@ -12,13 +12,16 @@ class Orders {
 
   }
 
-  totalSpendOnRoomService(customer, bookings) {
-    // for a specific customer
-    //need to refactor findCustomerOrders to be able to use this
+  totalRevenuePerDay(orders, date) {
+    //all revenue for a specific date
   }
 
-  totalPerDaySpentOnRoomService(customer, date) {
-    // for specific customer on specific day
+  findTotalSpendOnRoomService(orders, id) {
+    //find total spent on room service per customer
+  }
+
+  findTotalPerDayPerCustomer(orders, id, date) {
+
   }
   
 }
