@@ -8,14 +8,33 @@ class Bookings {
   }
 
   findMostPopularBookingDate() {
-    //
+    let dateTally = this.bookings.reduce((allDates, eachBooking) => {
+      if (!allDates[eachBooking.date]) {
+        allDates[eachBooking.date] = 1;
+      } else {
+        allDates[eachBooking.date]++
+      }
+      return allDates
+    }, {})
+
+    let popularDate = Object.keys(dateTally).reduce((bestDate, eachDate) => {
+      if (dateTally[eachDate] > bestDate.count) {
+        bestDate = {
+          'eachDate': eachDate,
+          'count': dateTally[eachDate]
+        }
+      }
+      return bestDate
+    }, {eachDate: '', count: 1})
+    
+    return popularDate
   }
 
   findDateWithMostRoomsAvailable(date) {
 
   }
 
-  findCustomerBookings(customer, date = this.todaysDate) {  //move to bookings
+  findCustomerBookings(customer, date = this.todaysDate) {  
     let pastDates = [];
     let futureDates = [];
     let todaysDates = []

@@ -30,7 +30,7 @@ class Hotel {
     })
   }
 
-  totalRevenue() { // maybe breakout into separate classes
+  totalRevenue() { 
     let roomsBookedForDate = this.findDailyBookingsAllCustomers().map(booking => booking.roomNumber);
     let roomCosts = this.rooms.filter(room => roomsBookedForDate.includes(room.number)).map(room => room.costPerNight)
     let orderCostsForDate = this.findDailyOrdersAllCustomers().map(order => order.totalCost)

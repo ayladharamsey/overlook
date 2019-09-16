@@ -32,11 +32,11 @@ describe('bookings', function() {
 
   it('should be able to find a customers future booking information', function() { 
     expect(booking.findCustomerBookings(1, '2019/09/14')[1]).to.eql([{ userID: 1, date: '2019/09/30', roomNumber: 4 },
-    { userID: 1, date: '2019/09/30', roomNumber: 18 }])
+      { userID: 1, date: '2019/09/30', roomNumber: 18 }])
   });
 
   it('should be able to find a customers todays booking information', function() { 
-    expect(booking.findCustomerBookings(1,'2019/09/14')[2]).to.eql([{ userID: 1, date: '2019/09/14', roomNumber: 1 }])
+    expect(booking.findCustomerBookings(1, '2019/09/14')[2]).to.eql([{ userID: 1, date: '2019/09/14', roomNumber: 1 }])
   });
   
   it('should should be able to return a list of unoccupied rooms for todays date', function() {
@@ -310,6 +310,10 @@ describe('bookings', function() {
         costPerNight: 200.05
       }
     ]);
+  });
+
+  it('should find the most popular date to book', function() { 
+    expect(booking.findMostPopularBookingDate()).to.eql({ eachDate: '2019/09/25', count: 3 });
   });
 
 

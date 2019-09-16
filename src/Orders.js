@@ -18,7 +18,7 @@ class Orders {
       return order.userID === customer;
     })
     allOrders.forEach(order => {
-      if(order.date < date) {
+      if (order.date < date) {
         pastOrders.push(order)
       } else if (order.date > date) {
         futureOrders.push(order)
