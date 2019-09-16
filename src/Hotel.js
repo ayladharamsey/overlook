@@ -54,26 +54,27 @@ class Hotel {
     })
   }
 
-  findUnoccupiedRooms() {
-
-  }
-
-  findOccupiedRooms() {
-
-  }
-
-  totalRevenue() {
-
+  findUnoccupiedRooms(date = this.todaysDate) {
+    let roomsBookedForDate = this.findDailyBookingsAllCustomers().map(booking => booking.roomNumber);
+    return this.rooms.filter(room => !roomsBookedForDate.includes(room.number));
   }
 
   determinePercentOccupied() {
-
+    let numberOfRooms = this.rooms.length 
+    let roomsBookedForDate = this.findDailyBookingsAllCustomers().length;
+    return Math.floor((roomsBookedForDate / numberOfRooms) * 100) 
   }
 
-  
-
-
-
+  totalRevenue() {
+    let roomsBookedForDate = this.findDailyBookingsAllCustomers().map(booking => booking.roomNumber);
+    let roomCosts = this.rooms.filter(room => roomsBookedForDate.includes(room.number)).map(room => room.costPerNight)
+    let orderCostsForDate = this.findDailyOrdersAllCustomers().map(order => order.totalCost)
+    let allCosts = roomCosts.concat(orderCostsForDate)
+    return allCosts.reduce((totalCost, eachCost) => {
+      totalCost += eachCost
+      return totalCost;
+    }, 0)
+  }
 }
 
 

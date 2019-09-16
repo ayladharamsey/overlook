@@ -66,7 +66,7 @@ describe('hotel', function() {
       totalCost: 20.79 }])
   });
 
-  it('should be able to find a customers future room service orders', function() { // move to customer
+  it('should be able to find a customers future room service orders', function() { // move to customerœ
     expect(hotel.findCustomerOrders()[1]).to.eql([{
       date: "2019/09/25",
       food: "Fantastic Cotton Sandwich",
@@ -99,6 +99,147 @@ describe('hotel', function() {
         food: 'Refined Cotton Sandwich',
         totalCost: 11.67 },
     ])
+  });
+
+  it('should should be able to return a list of unoccupied rooms for todays date', function() {
+    expect(hotel.findUnoccupiedRooms('2019/09/14')).to.eql([
+      {
+        number: 2,
+        roomType: 'single room',
+        bidet: true,
+        bedSize: 'full',
+        numBeds: 1,
+        costPerNight: 228.01
+      },
+      {
+        number: 3,
+        roomType: 'suite',
+        bidet: true,
+        bedSize: 'twin',
+        numBeds: 1,
+        costPerNight: 275.99
+      },
+      {
+        number: 4,
+        roomType: 'junior suite',
+        bidet: false,
+        bedSize: 'full',
+        numBeds: 1,
+        costPerNight: 177.03
+      },
+      {
+        number: 5,
+        roomType: 'junior suite',
+        bidet: false,
+        bedSize: 'king',
+        numBeds: 2,
+        costPerNight: 246.65
+      },
+      {
+        number: 6,
+        roomType: 'suite',
+        bidet: false,
+        bedSize: 'king',
+        numBeds: 1,
+        costPerNight: 211.42
+      },
+      {
+        number: 7,
+        roomType: 'residential suite',
+        bidet: false,
+        bedSize: 'full',
+        numBeds: 2,
+        costPerNight: 376.56
+      },
+      {
+        number: 8,
+        roomType: 'suite',
+        bidet: false,
+        bedSize: 'full',
+        numBeds: 1,
+        costPerNight: 177.04
+      },
+      {
+        number: 9,
+        roomType: 'suite',
+        bidet: true,
+        bedSize: 'twin',
+        numBeds: 1,
+        costPerNight: 327.76
+      },
+      {
+        number: 10,
+        roomType: 'single room',
+        bidet: false,
+        bedSize: 'queen',
+        numBeds: 2,
+        costPerNight: 296.48
+      },
+      {
+        number: 11,
+        roomType: 'single room',
+        bidet: true,
+        bedSize: 'queen',
+        numBeds: 1,
+        costPerNight: 216.05
+      },
+      {
+        number: 12,
+        roomType: 'single room',
+        bidet: false,
+        bedSize: 'queen',
+        numBeds: 1,
+        costPerNight: 247.86
+      },
+      {
+        number: 13,
+        roomType: 'residential suite',
+        bidet: false,
+        bedSize: 'full',
+        numBeds: 1,
+        costPerNight: 372.83
+      },
+      {
+        number: 14,
+        roomType: 'junior suite',
+        bidet: false,
+        bedSize: 'twin',
+        numBeds: 2,
+        costPerNight: 207.64
+      },
+      {
+        number: 16,
+        roomType: 'junior suite',
+        bidet: true,
+        bedSize: 'king',
+        numBeds: 2,
+        costPerNight: 116.19
+      },
+      {
+        number: 17,
+        roomType: 'juinor suite',
+        bidet: false,
+        bedSize: 'full',
+        numBeds: 1,
+        costPerNight: 216.05
+      },
+      {
+        number: 18,
+        roomType: 'suite',
+        bidet: true,
+        bedSize: 'twin',
+        numBeds: 2,
+        costPerNight: 200.05
+      }
+    ])
+  });
+
+  it('should be able to return the percent occupied', function() {
+    expect(hotel.determinePercentOccupied()).to.equal(11);
+  });
+
+  it('should be able to return the total revenue for a day', function() {
+    expect(hotel.totalRevenue()).to.equal(463.25);
   });
 
 });

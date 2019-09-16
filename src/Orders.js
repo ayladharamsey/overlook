@@ -12,8 +12,9 @@ class Orders {
 
   }
 
-  totalSpendOnRoomService(customer) {
+  totalSpendOnRoomService(customer, bookings) {
     // for a specific customer
+    //need to refactor findCustomerOrders to be able to use this
   }
 
   totalPerDaySpentOnRoomService(customer, date) {
