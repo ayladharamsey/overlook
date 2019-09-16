@@ -231,7 +231,7 @@ let testData = {
       date: '2019/09/14',
       food: 'Refined Cotton Sandwich',
       totalCost: 11.67 },
-    { userID: 1,
+    { userID: 9,
       date: '2019/09/30',
       food: 'Tasty Wooden Sandwich',
       totalCost: 19.55 },

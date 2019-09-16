@@ -15,19 +15,23 @@ let bookingsData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/boo
 let roomServicesData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices'); 
 let date = getDate();
 let hotel = 'potato';
+let orders;
+let bookings;
+// let customer; not sure if i need this yet 
+
 
 Promise.all([customersData, roomsData, bookingsData, roomServicesData])
   .then(dataSet => Promise.all(dataSet.map(dataSet => dataSet.json())))
   .then(allData => {
     let customers = allData.find(data => data.hasOwnProperty('users')).users;
-    console.log(customers)
-    let rooms = allData.find(data => data.hasOwnProperty('rooms')).rooms;
-    let bookings = allData.find(data => data.hasOwnProperty('bookings')).bookings;
+    let roomInfo = allData.find(data => data.hasOwnProperty('rooms')).rooms;
+    let bookingInfo = allData.find(data => data.hasOwnProperty('bookings')).bookings;
     let roomServices = allData.find(data => data.hasOwnProperty('roomServices')).roomServices;
-    hotel = new Hotel(customers, rooms, bookings, roomServices, date);
+    hotel = new Hotel(customers, roomInfo, bookingInfo, roomServices, date);
+    orders = new Orders(date, roomServices);
+    bookings = new Bookings(date, bookingInfo, roomInfo)
   })
   .then(() => onLoadHandler());
-  
 $('.reset-button').click(() => location.reload())
 
 
@@ -79,6 +83,7 @@ function getDate() {
 
 function onLoadHandler() {
   domUpdates.appendDate(date);
+  defaultOrdersTab();
 
 }
 function determineIfCurrentCustomer(name) {
@@ -100,9 +105,18 @@ function createNewCustomer(name) {
 
 function findAllCustomerInfo(customerId) {
   hotel.findCustomer(customerId);
-  let bookings = hotel.findCustomerBookings(date);
-  let orders = hotel.findCustomerOrders(date)
+  bookings.findCustomerBookings(hotel.currentCustomer.id, date);
+  orders.findCustomerOrders(hotel.currentCustomer, date)
   domUpdates.appendChosenCustomerInformation(bookings, orders)
 }
  
+
+function defaultOrdersTab() {
+  orders.totalRevenuePerDay(orders, date);
+  bookings.findUnoccupiedRooms(hotel, date)
+  bookings.determinePercentOccupied(hotel, date);
+  bookings.findDateWithMostRoomsAvailable(hotel)
+}
+
+
   

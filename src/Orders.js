@@ -1,24 +1,48 @@
 import domUpdates from "./domUpdates";
 
 class Orders {
-  constructor(userID, serviceDate, food, cost) {
-    this.userID = userID;
-    this.serviceDate = serviceDate;
-    this.food = food;
-    this.cost = cost;
+  constructor(todaysDate, orders) {
+    this.todaysDate = todaysDate;
+    this.orders = orders;
   }
 
   createNewOrder() {
 
   }
 
-  totalSpendOnRoomService(customer, bookings) {
-    // for a specific customer
-    //need to refactor findCustomerOrders to be able to use this
+  findCustomerOrders(customer, date = this.todaysDate) {
+    let pastOrders = [];
+    let futureOrders = [];
+    let todaysOrders = [];
+    let allOrders = this.orders.filter(order => {
+      return order.userID === customer;
+    })
+    allOrders.forEach(order => {
+      if (order.date < date) {
+        pastOrders.push(order)
+      } else if (order.date > date) {
+        futureOrders.push(order)
+      } else if (order.date === this.todaysDate) {
+        todaysOrders.push(order);
+      }
+    })
+    return [pastOrders, futureOrders, todaysOrders]
   }
 
-  totalPerDaySpentOnRoomService(customer, date) {
-    // for specific customer on specific day
+  totalRevenuePerDay() {
+    let costs = this.orders.filter(order => order.date === this.todaysDate).map(order => order.totalCost);
+    return costs.reduce((totalCost, eachCost) => {
+      totalCost += eachCost
+      return totalCost
+    }, 0)
+  }
+
+  findTotalSpendOnRoomService(orders, id) {
+    //find total spent on room service per customer
+  }
+
+  findTotalPerDayPerCustomer(orders, id, date) {
+
   }
   
 }
