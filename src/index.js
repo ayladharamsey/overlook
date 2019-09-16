@@ -49,18 +49,26 @@ $('.nav-button_delete-user').click(() => domUpdates.removeCurrentCustomer());
 $('.main-button_submit-date').click(() => {
   domUpdates.appendDateInQuestion($('.main-input_date').val());
   var input = $(event.target).siblings('input')[0].className;
-  domUpdates.clearInput(input)
-})
+  domUpdates.clearInput(input);
+});
 
 $('.main-button_remove-date').click(() => {
-  domUpdates.removeDateInQuestion()
-})
+  domUpdates.removeDateInQuestion();
+});
 
 $('.customer-button_create-customer').click(() => createNewCustomer($('.customer-input_name').val()));
 
-// $('.accordion').accordion({
-//   collapsible: true, active: true
-// })
+$('.list-item').click(function() {
+  $('.list-item.active').removeClass('active');
+  $(this).addClass('active');
+  var panelToShow = $(this).attr('rel')
+  $('.main-div_tabs-panel .panel.active').slideUp(300, function() {
+    $(this).removeClass('active')
+    $('#' + panelToShow).slideDown(300, function () {
+      $(this).addClass('active')
+    });
+  });
+})
   
 function getDate() {
   let today = new Date();
