@@ -63,7 +63,6 @@ class Hotel {
     let numberOfRooms = this.rooms.length 
     let roomsBookedForDate = this.findDailyBookingsAllCustomers().length;
     return Math.floor((roomsBookedForDate / numberOfRooms) * 100) 
-
   }
 
   totalRevenue() {

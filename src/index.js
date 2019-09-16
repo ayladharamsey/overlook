@@ -104,7 +104,5 @@ function findAllCustomerInfo(customerId) {
   let orders = hotel.findCustomerOrders(date)
   domUpdates.appendChosenCustomerInformation(bookings, orders)
 }
-
-
-
+ 
   
