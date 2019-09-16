@@ -238,4 +238,8 @@ describe('hotel', function() {
     expect(hotel.determinePercentOccupied()).to.equal(11);
   });
 
+  it('should be able to return the total revenue for a day', function() {
+    expect(hotel.totalRevenue()).to.equal(463.25);
+  });
+
 });
