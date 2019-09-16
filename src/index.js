@@ -24,7 +24,6 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
   .then(dataSet => Promise.all(dataSet.map(dataSet => dataSet.json())))
   .then(allData => {
     let customers = allData.find(data => data.hasOwnProperty('users')).users;
-    console.log(customers)
     let rooms = allData.find(data => data.hasOwnProperty('rooms')).rooms;
     let bookings = allData.find(data => data.hasOwnProperty('bookings')).bookings;
     let roomServices = allData.find(data => data.hasOwnProperty('roomServices')).roomServices;
@@ -107,13 +106,15 @@ function createNewCustomer(name) {
 
 function findAllCustomerInfo(customerId) {
   hotel.findCustomer(customerId);
-  bookings = hotel.findCustomerBookings(date);
-  orders = hotel.findCustomerOrders(date)
+  bookings.findCustomerBookings(hotel.currentCustomer, date);
+  orders.findCustomerOrders(hotel.currentCustomer, date)
   domUpdates.appendChosenCustomerInformation(bookings, orders)
 }
  
 
 function defaultOrdersTab() {
-  .totalRevenuePerDay(orders, date);
+  orders.totalRevenuePerDay(orders, date);
 }
+
+
   
