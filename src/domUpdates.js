@@ -38,15 +38,27 @@ let domUpdates = {
 
   appendChosenCustomerOrders(customerOrders) {
     customerOrders.forEach((customerOrder) => {
-      $('.orders-list_results').append(`
-      Date: ${customerOrder.date} Food: ${customerOrder.food} Cost: $ ${customerOrder.totalCost}`)
+      if (customerOrder.length > 0 ) {
+        customerOrder.forEach(item => {
+          $('.orders-list_customer-results').append(`
+          Date: ${item.date} Food: ${item.food} Cost: $ ${item.totalCost}`)
+          $('.orders-list_customer-results').show();
+          $('.orders-list_results').hide();
+        })       
+      }
     })
   },
 
   appendChosenCustomerBookings(customerBookings) {
     customerBookings.forEach((customerBooking) => {
-      $('.bookings-list_todays-bookings').append(`
-      Date: ${customerBooking.date} Room Number: ${customerBooking.roomNumber}`)
+      if (customerBooking.length > 0 ) {
+        customerBooking.forEach(item => {
+          $('.bookings-list_customer-bookings').append(`
+          Date: ${item.date} Room Number: ${item.roomNumber}`)
+          $('.bookings-list_customer-bookings').show();
+          $('.bookings-list_todays-bookings').hide();
+        })       
+      }
     })
   }, 
 
