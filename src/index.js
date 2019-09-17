@@ -24,6 +24,7 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
   .then(dataSet => Promise.all(dataSet.map(dataSet => dataSet.json())))
   .then(allData => {
     let customers = allData.find(data => data.hasOwnProperty('users')).users;
+    console.log(customers)
     let roomInfo = allData.find(data => data.hasOwnProperty('rooms')).rooms;
     let bookingInfo = allData.find(data => data.hasOwnProperty('bookings')).bookings;
     let roomServices = allData.find(data => data.hasOwnProperty('roomServices')).roomServices;
@@ -32,14 +33,14 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
     bookings = new Bookings(date, bookingInfo, roomInfo)
   })
   .then(() => onLoadHandler());
-$('.reset-button').click(() => location.reload())
 
+$('.reset-button').click(() => location.reload())
 
 $('.customer-button_submit-name').click(() => {
   var name = $('.customer-input_name').val()
   $('.nav-header_chosen-user').removeAttr('hidden');
   domUpdates.appendChosenUserName(name)
-  determineIfCurrentCustomer(name);
+  determineIfCurrentCustomer();
   var input = $(event.target).siblings('input')[0].className; // add this line to other button event handlers 
   domUpdates.clearInput(input)
 })
@@ -94,12 +95,13 @@ function onLoadHandler() {
   defaultOrdersTab();
 
 }
-function determineIfCurrentCustomer(name) {
+function determineIfCurrentCustomer() {
   hotel.customers.filter(customer => { 
-    if (customer.name.includes(name.split(' ')[0] || name.split(' ')[1])) {
+    if ($('.nav-header_chosen-user').text() === customer.name) {
+      domUpdates.validCustomer()
       return findAllCustomerInfo(customer.id);
     } else {
-      domUpdates.invalidCustomerName(name);
+      domUpdates.invalidCustomerName();
     }
   })
 }
@@ -112,10 +114,11 @@ function createNewCustomer(name) {
 }
 
 function findAllCustomerInfo(customerId) {
-  hotel.findCustomer(customerId);
-  bookings.findCustomerBookings(hotel.currentCustomer.id, date);
-  orders.findCustomerOrders(hotel.currentCustomer, date)
+  let customerInfo = hotel.findCustomer(customerId);
+  let bookingsInfo = bookings.findCustomerBookings(hotel.currentCustomer.id, date);
+  let ordersInfo = orders.findCustomerOrders(hotel.currentCustomer.id, date)
   domUpdates.appendChosenCustomerInformation(bookings, orders)
+  return [customerInfo, bookingsInfo, ordersInfo]
 }
  
 
