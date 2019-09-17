@@ -36,8 +36,8 @@ $('.customer-button_submit-name').click(() => {
   $('.nav-header_chosen-user').removeAttr('hidden');
   domUpdates.appendChosenUserName(name)
   determineIfCurrentCustomer(name);
-  var input = $(event.target).siblings('input')[0].className; // add this line to other button event handlers 
-  domUpdates.clearInput(input)
+  var input = $(event.target).siblings('input')[0].className; 
+  domUpdates.clearInput(input);
 })
 
 $('.main-button_submit-date').click(() => {
@@ -93,11 +93,11 @@ function onLoadHandler() {
 }
 
 function determineIfCurrentCustomer(name) {
-  let actualCustomer = hotel.customers.filter(customer => customer.name === name)
+  let actualCustomer = hotel.customers.filter(customer => customer.name === name);
   if (actualCustomer.length === 1) {
-  actualCustomer.forEach(customer => {
+    actualCustomer.forEach(customer => {
       domUpdates.validCustomer();
-      findAllCustomerInfo(customer.id)
+      findAllCustomerInfo(customer.id);
     })
   } else {
     domUpdates.invalidCustomerName();
@@ -114,8 +114,8 @@ function createNewCustomer(name) {
 function findAllCustomerInfo(customerId) {
   let customerInfo = hotel.findCustomer(customerId);
   let bookingsInfo = bookings.findCustomerBookings(customerId, date);
-  let ordersInfo = orders.findCustomerOrders(customerId, date)
-  domUpdates.appendChosenCustomerInformation(bookingsInfo, ordersInfo)
+  let ordersInfo = orders.findCustomerOrders(customerId, date);
+  domUpdates.appendChosenCustomerInformation(bookingsInfo, ordersInfo);
   return [customerInfo, bookingsInfo, ordersInfo]
 }
  
