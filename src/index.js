@@ -56,7 +56,7 @@ $('.main-button_remove-date').click(() => {
   domUpdates.removeDateInQuestion();
 });
 
-$('.customer-button_create-customer').click(() => createNewCustomer($('.customer-input_name').val()));
+$('.customer-button_create-customer').click(() => createNewCustomer($('.nav-header_chosen-user').text()));
 
 $('.list-item').click(function() {
   $('.list-item.active').removeClass('active');
@@ -99,7 +99,7 @@ function determineIfCurrentCustomer(name) {
     if (customer.name.includes(name.split(' ')[0] || name.split(' ')[1])) {
       return findAllCustomerInfo(customer.id);
     } else {
-      domUpdates.invalidCustomerName(name);//need to write
+      domUpdates.invalidCustomerName(name);
     }
   })
 }
@@ -108,7 +108,7 @@ function createNewCustomer(name) {
   var newId = hotel.customers.length + 1;
   let customer = new Customer(newId, name);
   hotel.customers.push(customer);
-  hotel.findCustomer(newId);// do i want this to return out?
+  hotel.findCustomer(newId);
 }
 
 function findAllCustomerInfo(customerId) {

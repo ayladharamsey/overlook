@@ -26,14 +26,14 @@ let domUpdates = {
     $('.main-header_date-in-question').text('').attr('hidden');
   },
 
-  invalidCustomerName(name) {
-  // append warning if invalid name is put into customer search input
-  //call create new user with unknown name fn 
+  invalidCustomerName() {
+    $('.customer-list_results').text('Invalid Customer Chosen,please search for an alternate customer or add this customer to the database.')
+    $('.customer-button_create-customer').show();
   }, 
 
   appendChosenCustomerInformation(bookings, orders) {
     this.appendChosenCustomerOrders(orders);
-    this.appendChoisenCustomerBookings(bookings);
+    this.appendChosenCustomerBookings(bookings);
   },
 
   appendChosenCustomerOrders(orders) {
