@@ -49,8 +49,15 @@ let domUpdates = {
   },
 
   customerCreatedMessage(name) {
-    $('.customer-div_results').text(`${name} is now added to our database!`);
+    $('.customer-div_customer-not-found').text(`${name} is now added to our database!`);
     $('.customer-button_create-customer').hide();
+  },
+
+  appendDefaultOrders(dailyOrders) {
+    dailyOrders.forEach((dailyOrder) => {
+      $('.orders-list_results').append(`
+      Date: ${dailyOrder.date} Food: ${dailyOrder.food} Cost: $ ${dailyOrder.totalCost}`)
+    })
   }
 
 }

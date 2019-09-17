@@ -94,18 +94,18 @@ function getDate() {
 
 function onLoadHandler() {
   domUpdates.appendDate(date);
-  defaultOrdersTab();
+  defaultAllTabs();
 
 }
+
 function determineIfCurrentCustomer(name) {
-  hotel.customers.filter(customer => { 
-    if (customer.name === name) {
-      domUpdates.validCustomer()
-      findAllCustomerInfo(customer.id);
-    } else if (customer.name === !name) {
-      domUpdates.invalidCustomerName();
-    }
-  });
+  let actualCustomer = hotel.customers.filter(customer => customer.name === name)
+  if (actualCustomer.length === 1) {
+    domUpdates.validCustomer();
+    findAllCustomerInfo(actualCustomer.id)
+  } else {
+    domUpdates.invalidCustomerName();
+  }
 }
 
 function createNewCustomer(name) { 
@@ -117,18 +117,21 @@ function createNewCustomer(name) {
 
 function findAllCustomerInfo(customerId) {
   let customerInfo = hotel.findCustomer(customerId);
-  let bookingsInfo = bookings.findCustomerBookings(hotel.currentCustomer.id, date);
-  let ordersInfo = orders.findCustomerOrders(hotel.currentCustomer.id, date)
+  let bookingsInfo = bookings.findCustomerBookings(customerId, date);
+  let ordersInfo = orders.findCustomerOrders(customerId, date)
   domUpdates.appendChosenCustomerInformation(bookings, orders)
   return [customerInfo, bookingsInfo, ordersInfo]
 }
  
 
-function defaultOrdersTab() {
+function defaultAllTabs() {
   orders.totalRevenuePerDay(orders, date);
   bookings.findUnoccupiedRooms(hotel, date)
   bookings.determinePercentOccupied(hotel, date);
-  bookings.findDateWithMostRoomsAvailable(hotel)
+  bookings.findDateWithMostRoomsAvailable(hotel);
+  var dailyOrders = hotel.findDailyOrdersAllCustomers(date);
+  console.log(dailyOrders)
+  domUpdates.appendDefaultOrders(dailyOrders);
 }
 
 

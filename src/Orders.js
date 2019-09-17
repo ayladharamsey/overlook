@@ -26,6 +26,7 @@ class Orders {
         todaysOrders.push(order);
       }
     })
+    console.log([pastOrders, futureOrders, todaysOrders])
     return [pastOrders, futureOrders, todaysOrders]
   }
 
