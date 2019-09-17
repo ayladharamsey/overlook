@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Hotel from './Hotel';
 
 let domUpdates = {
 
@@ -57,6 +58,8 @@ let domUpdates = {
           Date: ${item.date} Room Number: ${item.roomNumber}`)
           $('.bookings-list_customer-bookings').show();
           $('.bookings-list_todays-bookings').hide();
+          $('.bookings-header_popular-date').hide();
+
         })       
       }
     })
@@ -83,6 +86,12 @@ let domUpdates = {
       $('.bookings-list_todays-bookings').append(`
       Date: ${dailyBooking.date} Room Number: ${dailyBooking.roomNumber}`)
     })
+  },
+
+  appendPopularBookingDate(date) {
+    $('.bookings-header_popular-date').append(
+    `Most Popular Booking Date : ${date.eachDate}`
+    )
   }
 
 }

@@ -129,12 +129,14 @@ function findAllCustomerInfo(customerId) {
 function defaultAllTabs() {
   var dailyOrders = hotel.findDailyOrdersAllCustomers(date);
   var dailyBookings = hotel.findDailyBookingsAllCustomers(date);
+  var popularDate = bookings.findMostPopularBookingDate();
   orders.totalRevenuePerDay(orders, date);
   bookings.findUnoccupiedRooms(hotel, date)
   bookings.determinePercentOccupied(hotel, date);
   bookings.findDateWithMostRoomsAvailable(hotel);
   domUpdates.appendDefaultOrders(dailyOrders);
   domUpdates.appendDefaultBookings(dailyBookings);
+  domUpdates.appendPopularBookingDate(popularDate)
 }
 
 
