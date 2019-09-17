@@ -9,7 +9,6 @@
     <nav>
     <h1 class="title"> Hotel Manager </h1>
       <div class="nav-div_left-nav">
-        <button class="nav-button_delete-user">Remove Customer</button>
         <h3 class="nav-header_chosen-user" hidden> Chosen User Name</h3>
       </div>
       <div class="nav-div_right-nav">
@@ -37,6 +36,8 @@
             <button class="customer-button_submit-name">Submit</button>
             <h5 class="customer-header_results"> Results </h5>
             <div class="customer-div_results"></div>
+            <div class="customer-div_customer-found" ></div>
+            <div class="customer-div_customer-not-found" ></div>
             <button class="customer-button_create-customer" hidden>Create Customer</button>
           </div>
           <div id="Orders" class="panel">
@@ -44,9 +45,9 @@
             <input type="date" placeholder="Enter Date Here" class="orders-input_date">
             <button class="orders-button_submit-date" >Submit</button>
             <ul class="orders-list_results">
-              <li class="orders-list_item"> order 1 </li>
+              <!-- <li class="orders-list_item"> order 1 </li>
               <li class="orders-list_item"> order 2 </li>
-              <li class="orders-list_item"> order 3 </li>
+              <li class="orders-list_item"> order 3 </li> -->
             </ul>
             <h5 class="orders-header_spent-today"> Amount of Money Spent Today <span> 00.00 </span></h5>
             <h5 class="orders-header_spent-overall"> Amount of Money Spent Overall <span> 00.00 </span></h5>

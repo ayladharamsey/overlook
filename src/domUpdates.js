@@ -18,20 +18,16 @@ let domUpdates = {
     $(`.${input}`).val('');
   },
 
-  removeCurrentCustomer() {
-    $('.nav-header_chosen-user').text('').attr('hidden');
-  },
-
   removeDateInQuestion() {
     $('.main-header_date-in-question').text('').attr('hidden');
   },
 
   validCustomer() {
-    $('.customer-div_results').text('We have found 1 customer matching that name. Each tab will now display their various information.')
+    $('.customer-div_customer-found').text('We have found 1 customer matching that name. Each tab will now display their various information.')
   },
 
   invalidCustomerName() {
-    $('.customer-div_results').text('Invalid Customer Chosen,please search for an alternate customer or add this customer to the database.')
+    $('.customer-div_customer-not-found').text('Invalid Customer Chosen,please search for an alternate customer or add this customer to the database.')
     $('.customer-button_create-customer').show();
   }, 
 
@@ -50,6 +46,11 @@ let domUpdates = {
 
   totalRevenuePerDay() {
     // will append the revenue per day for all orders 
+  },
+
+  customerCreatedMessage(name) {
+    $('.customer-div_results').text(`${name} is now added to our database!`);
+    $('.customer-button_create-customer').hide();
   }
 
 }

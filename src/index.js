@@ -45,8 +45,6 @@ $('.customer-button_submit-name').click(() => {
   domUpdates.clearInput(input)
 })
 
-$('.nav-button_delete-user').click(() => domUpdates.removeCurrentCustomer());
-
 $('.main-button_submit-date').click(() => {
   domUpdates.appendDateInQuestion($('.main-input_date').val());
   var input = $(event.target).siblings('input')[0].className;
@@ -57,7 +55,11 @@ $('.main-button_remove-date').click(() => {
   domUpdates.removeDateInQuestion();
 });
 
-$('.customer-button_create-customer').click(() => createNewCustomer($('.nav-header_chosen-user').text()));
+$('.customer-button_create-customer').click(() => {
+  let name = $('.nav-header_chosen-user').text()
+  createNewCustomer(name);
+  domUpdates.customerCreatedMessage(name);
+});
 
 $('.list-item').click(function() {
   $('.list-item.active').removeClass('active');
@@ -97,10 +99,10 @@ function onLoadHandler() {
 }
 function determineIfCurrentCustomer(name) {
   hotel.customers.filter(customer => { 
-    if (name === customer.name) {
+    if (customer.name === name) {
       domUpdates.validCustomer()
-      return findAllCustomerInfo(customer.id);
-    } else if (name === !customer.name) {
+      findAllCustomerInfo(customer.id);
+    } else if (customer.name === !name) {
       domUpdates.invalidCustomerName();
     }
   });
