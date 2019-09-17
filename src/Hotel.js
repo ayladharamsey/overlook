@@ -18,13 +18,14 @@ class Hotel {
     return this.currentCustomer;
   }
 
-  findDailyBookingsAllCustomers(date = this.todaysDate) { // how do i test this dynamically every today'sDate without changing the data?
+  findDailyBookingsAllCustomers(date = this.todaysDate) {
+    console.log(date)
     return this.bookings.filter(booking => {
       return booking.date === date;
     })
   }
 
-  findDailyOrdersAllCustomers(date = this.todaysDate) { // how do i test this dynamically every today'sDate without changing the data?
+  findDailyOrdersAllCustomers(date = this.todaysDate) { 
     return this.orders.filter(order => {
       return order.date === date;
     })

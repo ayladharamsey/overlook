@@ -19,10 +19,6 @@ let domUpdates = {
     $(`.${input}`).val('');
   },
 
-  removeDateInQuestion() {
-    $('.main-header_date-in-question').text('').attr('hidden');
-  },
-
   validCustomer() {
     $('.customer-div_customer-found').text('We have found 1 customer matching that name. Each tab will now display their various information.')
   },

@@ -41,13 +41,11 @@ $('.customer-button_submit-name').click(() => {
 })
 
 $('.main-button_submit-date').click(() => {
-  domUpdates.appendDateInQuestion($('.main-input_date').val());
-  var input = $(event.target).siblings('input')[0].className;
+  let chosenDate = $('.main-input_date').val().replace(/-/gi, "/");
+  domUpdates.appendDateInQuestion(chosenDate);
+  updateDomWithAlternateDate(chosenDate);
+  let input = $(event.target).siblings('input')[0].className;
   domUpdates.clearInput(input);
-});
-
-$('.main-button_remove-date').click(() => {
-  domUpdates.removeDateInQuestion();
 });
 
 $('.customer-button_create-customer').click(() => {
@@ -135,6 +133,17 @@ function defaultAllTabs() {
   domUpdates.appendPercentOccupied(percentUnoccupied);
   domUpdates.totalRevenuePerDay(revenue);
   domUpdates.appendAvailableBookings(availableBookings);
+}
+
+function updateDomWithAlternateDate(chosenDate) {
+  let dailyOrders = hotel.findDailyOrdersAllCustomers(chosenDate);
+  let dailyBookings = hotel.findDailyBookingsAllCustomers(chosenDate);
+  let percentUnoccupied = bookings.determinePercentOccupied(hotel, chosenDate);
+  let revenue = orders.totalRevenuePerDay(orders, chosenDate);
+  domUpdates.appendDefaultOrders(dailyOrders);
+  domUpdates.appendDefaultBookings(dailyBookings);
+  domUpdates.appendPercentOccupied(percentUnoccupied);
+  domUpdates.totalRevenuePerDay(revenue);
 }
 
 
