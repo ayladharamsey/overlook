@@ -40,7 +40,7 @@ $('.customer-button_submit-name').click(() => {
   var name = $('.customer-input_name').val()
   $('.nav-header_chosen-user').removeAttr('hidden');
   domUpdates.appendChosenUserName(name)
-  determineIfCurrentCustomer();
+  determineIfCurrentCustomer(name);
   var input = $(event.target).siblings('input')[0].className; // add this line to other button event handlers 
   domUpdates.clearInput(input)
 })
@@ -95,15 +95,15 @@ function onLoadHandler() {
   defaultOrdersTab();
 
 }
-function determineIfCurrentCustomer() {
+function determineIfCurrentCustomer(name) {
   hotel.customers.filter(customer => { 
-    if ($('.nav-header_chosen-user').text() === customer.name) {
+    if (name === customer.name) {
       domUpdates.validCustomer()
       return findAllCustomerInfo(customer.id);
-    } else {
+    } else if (name === !customer.name) {
       domUpdates.invalidCustomerName();
     }
-  })
+  });
 }
 
 function createNewCustomer(name) { 
