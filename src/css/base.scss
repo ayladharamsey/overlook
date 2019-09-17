@@ -24,7 +24,7 @@ body {
     background-color: $primary-fifth;
     border-radius: 5px;
     border: none;
-    width: 10%;
+    width: 150px;;
     height: 25px;
     font-weight: 600;
     color: #2F4A57;
@@ -71,17 +71,29 @@ body {
 
     .nav-div_left-nav {
       display: flex;
-      width: 25%;
-      }
+      width: 50%;
+    }
+
     .nav-button_delete-user {
-      margin: 20px;
-	    height:100%;
-      width: 100%;
-      position: relative;
+      width: 150px;
       box-sizing: border-box;
       display: inline-block;
       color: #2F4A57;
-      
+      margin: 20px;
+    }
+
+    .nav-header_chosen-user {
+      margin-top: 2.2%;
+      width: 500px;
+      font-weight: 700;
+      font-size: 1.3em;
+    }
+
+    .reset-button {
+      width: 100px;
+    }
+    .nav-div_right-nav {
+      align-content: center;
     }
   }
 
@@ -106,23 +118,24 @@ body {
     .list-item {
       list-style: none;
       display: inline-block;
-      background-color: $primary-fourth;
-      padding: 0px 10px;
+      background-color: $primary-third;
+      padding: 8px 10px;
       border-radius: 10px 10px 0px 0px;
       color:$primary-background;
       cursor: pointer; 
       width: 32%;
-      font-size: .8em;
+      font-size: 1em;
       font-family: $display-typeface;
       text-align: center;
+      height: 40px;
     }
     
     .list-item.active {
-      background-color: $primary-third;
+      background-color: $primary-fourth;
     }
 
     .list-item:hover {
-      background-color: $primary-third;
+      background-color: $primary-fifth;
     }
 
 
