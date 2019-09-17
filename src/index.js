@@ -121,11 +121,12 @@ function findAllCustomerInfo(customerId) {
  
 
 function defaultAllTabs() {
-  var dailyOrders = hotel.findDailyOrdersAllCustomers(date);
-  var dailyBookings = hotel.findDailyBookingsAllCustomers(date);
-  var popularDate = bookings.findMostPopularBookingDate();
-  var percentUnoccupied = bookings.determinePercentOccupied(hotel, date);
-  var revenue = orders.totalRevenuePerDay(orders, date);
+  let dailyOrders = hotel.findDailyOrdersAllCustomers(date);
+  let dailyBookings = hotel.findDailyBookingsAllCustomers(date);
+  let popularDate = bookings.findMostPopularBookingDate();
+  let percentUnoccupied = bookings.determinePercentOccupied(hotel, date);
+  let revenue = orders.totalRevenuePerDay(orders, date);
+  let availableBookings = bookings.findDateWithMostRoomsAvailable(hotel) 
   bookings.findUnoccupiedRooms(hotel, date);
   bookings.findDateWithMostRoomsAvailable(hotel);
   domUpdates.appendDefaultOrders(dailyOrders);
@@ -133,6 +134,7 @@ function defaultAllTabs() {
   domUpdates.appendPopularBookingDate(popularDate);
   domUpdates.appendPercentOccupied(percentUnoccupied);
   domUpdates.totalRevenuePerDay(revenue);
+  domUpdates.appendAvailableBookings(availableBookings);
 }
 
 

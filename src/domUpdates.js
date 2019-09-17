@@ -59,7 +59,7 @@ let domUpdates = {
           $('.bookings-list_customer-bookings').show();
           $('.bookings-list_todays-bookings').hide();
           $('.bookings-header_popular-date').hide();
-
+          $('.bookings-list_available-bookings').hide();
         })       
       }
     })
@@ -96,9 +96,13 @@ let domUpdates = {
 
   appendPercentOccupied(percentage) {
     $('.percent-occupied').text(percentage)
+  }, 
+
+  appendAvailableBookings(availableBooking) {
+    $('.bookings-list_available-bookings').append(`
+      Date with Available Bookings: ${availableBooking.date} `)    
   }
-
+    
 }
-
 
 export default domUpdates;
