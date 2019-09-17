@@ -36,12 +36,18 @@ let domUpdates = {
     this.appendChosenCustomerBookings(bookings);
   },
 
-  appendChosenCustomerOrders(orders) {
-    //will append currentCustomer's orders
+  appendChosenCustomerOrders(customerOrders) {
+    customerOrders.forEach((customerOrder) => {
+      $('.orders-list_results').append(`
+      Date: ${customerOrder.date} Food: ${customerOrder.food} Cost: $ ${customerOrder.totalCost}`)
+    })
   },
 
-  appendChosenCustomerBookings(bookings) {
-    //will append currentCustomer's bookings
+  appendChosenCustomerBookings(customerBookings) {
+    customerBookings.forEach((customerBooking) => {
+      $('.bookings-list_todays-bookings').append(`
+      Date: ${customerBooking.date} Room Number: ${customerBooking.roomNumber}`)
+    })
   }, 
 
   totalRevenuePerDay() {
@@ -57,6 +63,13 @@ let domUpdates = {
     dailyOrders.forEach((dailyOrder) => {
       $('.orders-list_results').append(`
       Date: ${dailyOrder.date} Food: ${dailyOrder.food} Cost: $ ${dailyOrder.totalCost}`)
+    })
+  },
+
+  appendDefaultBookings(dailyBookings) {
+    dailyBookings.forEach((dailyBooking) => {
+      $('.bookings-list_todays-bookings').append(`
+      Date: ${dailyBooking.date} Room Number: ${dailyBooking.roomNumber}`)
     })
   }
 
