@@ -65,8 +65,8 @@ let domUpdates = {
     })
   }, 
 
-  totalRevenuePerDay() {
-    // will append the revenue per day for all orders 
+  totalRevenuePerDay(revenue) {
+    $('.total-revenue').text(revenue);
   },
 
   customerCreatedMessage(name) {
@@ -92,6 +92,10 @@ let domUpdates = {
     $('.bookings-header_popular-date').append(
     `Most Popular Booking Date : ${date.eachDate}`
     )
+  },
+
+  appendPercentOccupied(percentage) {
+    $('.percent-occupied').text(percentage)
   }
 
 }

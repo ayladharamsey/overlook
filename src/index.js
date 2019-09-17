@@ -1,7 +1,4 @@
-//event handling 
-
 import $ from 'jquery';
-// import 'jq-accordion';
 import domUpdates from './domUpdates';
 import Orders from "../src/Orders.js";
 import Bookings from "../src/Bookings.js";
@@ -17,8 +14,6 @@ let date = getDate();
 let hotel = 'potato';
 let orders;
 let bookings;
-// let customer; not sure if i need this yet 
-
 
 Promise.all([customersData, roomsData, bookingsData, roomServicesData])
   .then(dataSet => Promise.all(dataSet.map(dataSet => dataSet.json())))
@@ -95,7 +90,6 @@ function getDate() {
 function onLoadHandler() {
   domUpdates.appendDate(date);
   defaultAllTabs();
-
 }
 
 function determineIfCurrentCustomer(name) {
@@ -130,13 +124,15 @@ function defaultAllTabs() {
   var dailyOrders = hotel.findDailyOrdersAllCustomers(date);
   var dailyBookings = hotel.findDailyBookingsAllCustomers(date);
   var popularDate = bookings.findMostPopularBookingDate();
-  orders.totalRevenuePerDay(orders, date);
-  bookings.findUnoccupiedRooms(hotel, date)
-  bookings.determinePercentOccupied(hotel, date);
+  var percentUnoccupied = bookings.determinePercentOccupied(hotel, date);
+  var revenue = orders.totalRevenuePerDay(orders, date);
+  bookings.findUnoccupiedRooms(hotel, date);
   bookings.findDateWithMostRoomsAvailable(hotel);
   domUpdates.appendDefaultOrders(dailyOrders);
   domUpdates.appendDefaultBookings(dailyBookings);
-  domUpdates.appendPopularBookingDate(popularDate)
+  domUpdates.appendPopularBookingDate(popularDate);
+  domUpdates.appendPercentOccupied(percentUnoccupied);
+  domUpdates.totalRevenuePerDay(revenue);
 }
 
 
