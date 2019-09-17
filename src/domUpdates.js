@@ -90,7 +90,7 @@ let domUpdates = {
 
   appendPopularBookingDate(date) {
     $('.bookings-header_popular-date').append(
-    `Most Popular Booking Date : ${date.eachDate}`
+      `Most Popular Booking Date : ${date.eachDate}`
     )
   },
 
