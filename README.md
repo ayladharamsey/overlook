@@ -1,9 +1,9 @@
 # Hotel Manager
 
-##About this App 
+## About this App 
 This otel management application utilizes Fetch API to gather customer data that would be should be accessed via the application dashboard. The manager is able to create new hotel customers, book rooms, unbook rooms, and calculate room service revenue. 
 
-###This application utilizes tools/libraries such as: 
+### This application utilizes tools/libraries such as: 
 - jQuery
 - SASS/scss
 - Fetch API
@@ -21,3 +21,5 @@ npm start
 Look for the local server address in the output, which will look something like:
 Project is running at http://localhost:8080/
 Go to http://localhost:8080/ in your browser to view the site
+
+![image](https://github.com/ayladharamsey/fitlit-starter-kit/blob/master/images/Screen%20Shot%202019-07-10%20at%204.26.40%20PM.png )
