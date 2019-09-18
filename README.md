@@ -22,4 +22,4 @@ Look for the local server address in the output, which will look something like:
 Project is running at http://localhost:8080/
 Go to http://localhost:8080/ in your browser to view the site
 
-![image](https://github.com/ayladharamsey/fitlit-starter-kit/blob/master/images/Screen%20Shot%202019-07-10%20at%204.26.40%20PM.png )
+![image](https://github.com/ayladharamsey/overlook/blob/master/image/Sep-18-2019%2008-28-30.gif )
