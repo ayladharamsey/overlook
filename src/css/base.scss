@@ -60,9 +60,10 @@ body {
     margin: 10px;
   }
 
-  span, li {
-    font-weight: 300;
+  span {
+    font-family: $display-typeface;
     color: $primary-secondary;
+    font-weight: 700;
 
   }
 

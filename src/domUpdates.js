@@ -38,7 +38,7 @@ let domUpdates = {
       if (customerOrder.length > 0 ) {
         customerOrder.forEach(item => {
           $('.orders-list_customer-results').append(`
-          Date: ${item.date} Food: ${item.food} Cost: $ ${item.totalCost}`)
+          Date: ${item.date} Food: ${item.food} Cost: $ ${item.totalCost}<br>`)
           $('.orders-list_customer-results').show();
           $('.orders-list_results').hide();
         })       
@@ -51,7 +51,7 @@ let domUpdates = {
       if (customerBooking.length > 0 ) {
         customerBooking.forEach(item => {
           $('.bookings-list_customer-bookings').append(`
-          Date: ${item.date} Room Number: ${item.roomNumber}`)
+          Date: ${item.date} Room Number: ${item.roomNumber}<br>`)
           $('.bookings-list_customer-bookings').show();
           $('.bookings-list_todays-bookings').hide();
           $('.bookings-header_popular-date').hide();
@@ -73,14 +73,14 @@ let domUpdates = {
   appendDefaultOrders(dailyOrders) {
     dailyOrders.forEach((dailyOrder) => {
       $('.orders-list_results').append(`
-      Date: ${dailyOrder.date} Food: ${dailyOrder.food} Cost: $ ${dailyOrder.totalCost}`)
+      Date: ${dailyOrder.date} Food: ${dailyOrder.food} Cost: $ ${dailyOrder.totalCost}<br>`)
     })
   },
 
   appendDefaultBookings(dailyBookings) {
     dailyBookings.forEach((dailyBooking) => {
       $('.bookings-list_todays-bookings').append(`
-      Date: ${dailyBooking.date} Room Number: ${dailyBooking.roomNumber}`)
+      Date: ${dailyBooking.date} Room Number: ${dailyBooking.roomNumber}<br>`)
     })
   },
 
