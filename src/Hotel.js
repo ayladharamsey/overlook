@@ -1,8 +1,3 @@
-import domUpdates from "./domUpdates";
-import Customer from "./Customer"
-import Bookings from "./Bookings"
-import Orders from "./Orders"
-
 class Hotel {
   constructor(customers, rooms, bookings, orders, todaysDate) {
     this.customers = customers;
@@ -14,7 +9,7 @@ class Hotel {
   }
 
   findCustomer(id) {
-    this.currentCustomer = this.customers.find(customer => customer.id === id)
+    this.currentCustomer = this.customers.find(customer => customer.id === id);
     return this.currentCustomer;
   }
 
@@ -44,9 +39,7 @@ class Hotel {
 
   bookRoom(room) {
     this.bookings.push(room)
-  };
+  }
 }
-
-
 
 export default Hotel;
