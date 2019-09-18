@@ -1,5 +1,3 @@
-import domUpdates from "./domUpdates";
-
 class Orders {
   constructor(todaysDate, orders) {
     this.todaysDate = todaysDate;
@@ -33,6 +31,5 @@ class Orders {
     }, 0)
   }
 }
-
 
 export default Orders;
