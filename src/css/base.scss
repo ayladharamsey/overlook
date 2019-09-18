@@ -196,6 +196,7 @@ body {
       width: 90%;
       margin-left: 5%;
       height: 60vh;
+      padding: 20px;
     }
 
     .tabs {
@@ -208,11 +209,13 @@ body {
     }
 
     .bookings-list_todays-bookings, 
-    .bookings-list_available-bookings {
+    .bookings-list_available-bookings,
+    .bookings-list_chosen-date-bookings,
+    .bookings-list_available-chosen-date,
+    .bookings-list_customer-bookings {
       max-height: 200px;
       overflow: scroll;
       padding: 20px;
-      border: 2px solid $primary-background
       span {
         display: block;
       }

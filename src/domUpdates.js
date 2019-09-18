@@ -124,15 +124,19 @@ let domUpdates = {
     }   
   },
 
-  appendChosenDateBookings(availableBookings) {
+  appendChosenDateBookings(dailyBookings) {
     $('.bookings-list_chosen-date-bookings').show()
-    availableBookings.forEach(availableBooking => {
-      $('.bookings-list_chosen-date-bookings').append(`
-      Room Type : ${availableBooking.roomType} Bidet: ${availableBooking.bidet}
-      Bed Size: ${availableBooking.bedSize} Number of Beds: ${availableBooking.numBeds}
-      Cost Per Night: ${availableBooking.costPerNight} 
-      <button class="book-room" data-id = ${availableBooking.number}> Book </button> <br>`)
-    })  
+    $('.bookings-header_popular-date').hide()
+      $('.bookings-list_todays-bookings').hide()
+    if (dailyBookings.length > 0) {
+      dailyBookings.forEach((dailyBooking) => {
+        $('.bookings-list_chosen-date-bookings').append(`
+        Date: ${dailyBooking.date} Room Number: ${dailyBooking.roomNumber}<br>`)
+      })
+    } else {
+      $('.bookings-list_chosen-date-bookings').append(` We have no bookings for this date`);
+    }
+    
   },
 
   appendChosenDateOccupied(percentage) {
@@ -148,11 +152,13 @@ let domUpdates = {
   },
 
   appendChosenDateBookingsUnoccupied(unoccupiedRooms) {
+    $('.bookings-list_available-bookings').hide()
     $('.bookings-list_available-chosen-date').show()
     unoccupiedRooms.forEach(unoccupiedRoom => {
+      console.log(unoccupiedRoom)
       $('.bookings-list_available-chosen-date').append(`
       Room Type : ${unoccupiedRoom.roomType} Bidet: ${unoccupiedRoom.bidet}
-      Bed Size: ${unoccupiedRoom.bedSize} Number of Beds: ${unoccupiedRooms.numBeds}
+      Bed Size: ${unoccupiedRoom.bedSize} Number of Beds: ${unoccupiedRoom.numBeds}
       Cost Per Night: ${unoccupiedRoom.costPerNight} 
       <button class="book-room" data-id = ${unoccupiedRoom.number}> Book </button> <br>`)
     })  
