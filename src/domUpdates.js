@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import Hotel from './Hotel';
 
 let domUpdates = {
 
@@ -20,11 +19,11 @@ let domUpdates = {
   },
 
   validCustomer() {
-    $('.customer-div_customer-found').text('We have found 1 customer matching that name. Each tab will now display their various information.')
+    $('.customer-div_customer-found').text('We have found 1 customer matching that name. Each tab will now display their various information.');
   },
 
   invalidCustomerName() {
-    $('.customer-div_customer-not-found').text('Invalid Customer Chosen,please search for an alternate customer or add this customer to the database.')
+    $('.customer-div_customer-not-found').text('Invalid Customer Chosen,please search for an alternate customer or add this customer to the database.');
     $('.customer-button_create-customer').show();
   }, 
 
@@ -38,12 +37,12 @@ let domUpdates = {
       if (customerOrder.length > 0 ) {
         customerOrder.forEach(item => {
           $('.orders-list_customer-results').append(`
-          Date: ${item.date} Food: ${item.food} Cost: $ ${item.totalCost}<br>`)
+          Date: ${item.date} Food: ${item.food} Cost: $ ${item.totalCost}<br>`);
           $('.orders-list_customer-results').show();
           $('.orders-list_results').hide();
-        })       
+        });      
       }
-    })
+    });
   },
 
   appendChosenCustomerBookings(customerBookings) {

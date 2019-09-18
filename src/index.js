@@ -75,6 +75,13 @@ $('.bookings-list_available-bookings').click(function(e) {
   hotel.bookRoom(targetRoom);
   domUpdates.unbookButtonChange(targetRoom);
 });
+
+$('.bookings-list_available-chosen-date').click(function(e) {
+  e.preventDefault();
+  let targetRoom = $(e.target).attr('data-id');
+  hotel.bookRoom(targetRoom);
+  domUpdates.unbookButtonChange(targetRoom);
+});
   
 function getDate() {
   let today = new Date();
