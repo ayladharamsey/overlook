@@ -67,6 +67,14 @@ $('.list-item').click(function() {
     });
   });
 })
+
+  
+$('.bookings-list_available-bookings').click(function(e) {
+  e.preventDefault();
+  let targetRoom = $(e.target).attr('data-id');
+  hotel.bookRoom(targetRoom);
+  domUpdates.unbookButtonChange(targetRoom);
+});
   
 function getDate() {
   let today = new Date();
@@ -126,15 +134,13 @@ function defaultAllTabs() {
   let popularDate = bookings.findMostPopularBookingDate();
   let percentUnoccupied = bookings.determinePercentOccupied(hotel, date);
   let revenue = orders.totalRevenuePerDay(orders, date);
-  let availableBookings = bookings.findDateWithMostRoomsAvailable(hotel) 
-  bookings.findUnoccupiedRooms(hotel, date);
-  bookings.findDateWithMostRoomsAvailable(hotel);
+  let unoccupiedRooms = bookings.findUnoccupiedRooms(hotel, date);
   domUpdates.appendDefaultOrders(dailyOrders);
   domUpdates.appendDefaultBookings(dailyBookings);
   domUpdates.appendPopularBookingDate(popularDate);
   domUpdates.appendPercentOccupied(percentUnoccupied);
   domUpdates.totalRevenuePerDay(revenue);
-  domUpdates.appendAvailableBookings(availableBookings);
+  domUpdates.appendAvailableBookings(unoccupiedRooms);
 }
 
 function updateDomWithAlternateDate(chosenDate) {
@@ -142,10 +148,12 @@ function updateDomWithAlternateDate(chosenDate) {
   let dailyBookings = hotel.findDailyBookingsAllCustomers(chosenDate);
   let percentUnoccupied = bookings.determinePercentOccupied(hotel, chosenDate);
   let revenue = orders.totalRevenuePerDay(orders, chosenDate);
+  let unoccupiedRooms = bookings.findUnoccupiedRooms(hotel, chosenDate);
   domUpdates.appendDefaultOrders(dailyOrders);
   domUpdates.appendDefaultBookings(dailyBookings);
   domUpdates.appendPercentOccupied(percentUnoccupied);
   domUpdates.totalRevenuePerDay(revenue);
+  domUpdates.appendAvailableBookings(unoccupiedRooms);
 }
 
 

@@ -86,7 +86,7 @@ let domUpdates = {
 
   appendPopularBookingDate(date) {
     $('.bookings-header_popular-date').append(
-      `Most Popular Booking Date : ${date.eachDate}`
+      `${date.eachDate}`
     )
   },
 
@@ -94,9 +94,18 @@ let domUpdates = {
     $('.percent-occupied').text(percentage)
   }, 
 
-  appendAvailableBookings(availableBooking) {
-    $('.bookings-list_available-bookings').append(`
-      Date with Available Bookings: ${availableBooking.date} `)    
+  appendAvailableBookings(availableBookings) {
+    availableBookings.forEach(availableBooking => {
+      $('.bookings-list_available-bookings').append(`
+      Room Type : ${availableBooking.roomType} Bidet: ${availableBooking.bidet}
+      Bed Size: ${availableBooking.bedSize} Number of Beds: ${availableBooking.numBeds}
+      Cost Per Night: ${availableBooking.costPerNight} 
+      <button class="book-room" data-id = ${availableBooking.number}> Book </button> <br>`)
+    })  
+  },
+
+  unbookButtonChange(room) {
+    console.log($(`[data-id = "${room}"]`).text('Unbook'))
   }
     
 }

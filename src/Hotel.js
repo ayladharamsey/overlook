@@ -40,6 +40,10 @@ class Hotel {
       return totalCost;
     }, 0)
   }
+
+  bookRoom(room) {
+    this.bookings.push(room)
+  };
 }
 
 

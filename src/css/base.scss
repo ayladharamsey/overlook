@@ -64,7 +64,6 @@ body {
     font-family: $display-typeface;
     color: $primary-secondary;
     font-weight: 700;
-
   }
 
   nav {
@@ -196,8 +195,9 @@ body {
       display: block;
       width: 90%;
       margin-left: 5%;
-      height: 40vh;
+      height: 60vh;
     }
+
     .tabs {
       text-align: left;
       margin-left: 5%;
@@ -205,6 +205,22 @@ body {
 
     .customer-div_customer-found {
       margin-top: 20px;
+    }
+
+    .bookings-list_todays-bookings, 
+    .bookings-list_available-bookings {
+      max-height: 200px;
+      overflow: scroll;
+      padding: 20px;
+      border: 2px solid $primary-background
+      span {
+        display: block;
+      }
+    }
+
+    .book-room {
+      width: 100px;
+      margin: 5px;
     }
     
 
