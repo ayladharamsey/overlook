@@ -19,7 +19,6 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
   .then(dataSet => Promise.all(dataSet.map(dataSet => dataSet.json())))
   .then(allData => {
     let customers = allData.find(data => data.hasOwnProperty('users')).users;
-    console.log(customers)
     let roomInfo = allData.find(data => data.hasOwnProperty('rooms')).rooms;
     let bookingInfo = allData.find(data => data.hasOwnProperty('bookings')).bookings;
     let roomServices = allData.find(data => data.hasOwnProperty('roomServices')).roomServices;
@@ -87,6 +86,7 @@ function getDate() {
 function onLoadHandler() {
   domUpdates.appendDate(date);
   defaultAllTabs();
+  $('.customer-input_name').focus();
 }
 
 function determineIfCurrentCustomer(name) {
