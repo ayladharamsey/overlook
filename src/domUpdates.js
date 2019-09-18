@@ -105,7 +105,7 @@ let domUpdates = {
   },
 
   unbookButtonChange(room) {
-    console.log($(`[data-id = "${room}"]`).text('Unbook'))
+    $(`[data-id = "${room}"]`).text('Unbook');
   }
     
 }
