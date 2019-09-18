@@ -73,14 +73,13 @@ $('.bookings-list_available-bookings').click(function(e) {
   e.preventDefault();
   let targetRoom = $(e.target).attr('data-id');
   hotel.bookRoom(targetRoom);
-  domUpdates.unbookButtonChange(targetRoom);
 });
+// any class method that is updating an instance property in my class should also update the dom from within that method 
 
 $('.bookings-list_available-chosen-date').click(function(e) {
   e.preventDefault();
   let targetRoom = $(e.target).attr('data-id');
   hotel.bookRoom(targetRoom);
-  domUpdates.unbookButtonChange(targetRoom);
 });
   
 function getDate() {

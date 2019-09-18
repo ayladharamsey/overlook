@@ -1,15 +1,15 @@
 import Hotel from '../src/Hotel.js'
 import testData from '../data/test-data'
 import chai from 'chai';
-// import spies from 'chai-spies'
 const expect = chai.expect;
+const spies = require('chai-spies');
+chai.use(spies)
 let hotel;
 
 
 describe('hotel', function() {
 
   beforeEach(function() {
-    // how can i test today's date dynamically?
     hotel = new Hotel(testData.users, testData.rooms, testData.bookings, testData.roomServices, '2019/09/14')
     hotel.findCustomer(3)
   });
@@ -64,6 +64,12 @@ describe('hotel', function() {
 
   it('should be able to return the total revenue for a day', function() {
     expect(hotel.totalRevenue()).to.equal(463);
+  });
+
+  it('should be able to book a room', function() {
+    chai.spy.on(hotel, ['bookRoom'], () => {});
+    hotel.bookRoom(14)
+    expect(hotel.bookRoom).to.have.been.called(1);
   });
 
 });
