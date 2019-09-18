@@ -336,6 +336,4 @@ describe('bookings', function() {
     hotel = new Hotel(testData.users, testData.rooms, testData.bookings, testData.roomServices, '2019/09/14')
     expect(booking.findDateWithMostRoomsAvailable(hotel)).to.eql({ date: '2019/09/14', count: '2' });
   });
-
-
 });

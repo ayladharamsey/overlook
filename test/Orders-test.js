@@ -21,7 +21,7 @@ describe('orders', function() {
   });
 
   it('should calculate the total revenue of all orders for a date', function() {
-    expect(order.totalRevenuePerDay()).to.equal(25.22 );
+    expect(order.totalRevenuePerDay('2019/09/14')).to.equal(25.22);
   });
 
   it('should be able to find a customers past room service orders', function() { // move to customer

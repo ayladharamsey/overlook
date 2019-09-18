@@ -1,7 +1,4 @@
-//event handling 
-
 import $ from 'jquery';
-// import 'jq-accordion';
 import domUpdates from './domUpdates';
 import Orders from "../src/Orders.js";
 import Bookings from "../src/Bookings.js";
@@ -17,8 +14,6 @@ let date = getDate();
 let hotel = 'potato';
 let orders;
 let bookings;
-// let customer; not sure if i need this yet 
-
 
 Promise.all([customersData, roomsData, bookingsData, roomServicesData])
   .then(dataSet => Promise.all(dataSet.map(dataSet => dataSet.json())))
@@ -32,35 +27,54 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
     bookings = new Bookings(date, bookingInfo, roomInfo)
   })
   .then(() => onLoadHandler());
+
 $('.reset-button').click(() => location.reload())
 
+$('.customer-button_submit-name').click( () => {
+  let name = $('.customer-input_name').val()
+  if ($('.customer-input_name').val()) {
+    $('.nav-header_chosen-user').removeAttr('hidden');
+    domUpdates.appendChosenUserName(name)
+    determineIfCurrentCustomer(name);
+    var input = $(event.target).siblings('input')[0].className; 
+    domUpdates.clearInput(input);
+    $('.customer-input_name').attr('disabled')
+  }
+});
 
-$('.customer-button_submit-name').click(() => {
-  var name = $('.customer-input_name').val()
-  $('.nav-header_chosen-user').removeAttr('hidden');
-  domUpdates.appendChosenUserName(name)
-  determineIfCurrentCustomer(name);
-  var input = $(event.target).siblings('input')[0].className; // add this line to other button event handlers 
-  domUpdates.clearInput(input)
+$('.main-button_submit-date').click( () => {
+  let chosenDate = $('.main-input_date').val().replace(/-/gi, "/");
+  domUpdates.appendDateInQuestion(chosenDate);
+  updateDomWithAlternateDate(chosenDate);
+  let input = $(event.target).siblings('input')[0].className;
+  domUpdates.clearInput(input);
+});
+
+$('.customer-button_create-customer').click( () => {
+  let name = $('.nav-header_chosen-user').text()
+  createNewCustomer(name);
+  domUpdates.customerCreatedMessage(name);
+});
+
+$('.list-item').click(function() {
+  $('.list-item.active').removeClass('active');
+  $(this).addClass('active');
+  var panelToShow = $(this).attr('rel')
+  $('.main-div_tabs-panel .panel.active').slideUp(300, function() {
+    $(this).removeClass('active')
+    $('#' + panelToShow).slideDown(300, function () {
+      $(this).addClass('active')
+    });
+  });
 })
 
-$('.nav-button_delete-user').click(() => domUpdates.removeCurrentCustomer());
-
-$('.main-button_submit-date').click(() => {
-  domUpdates.appendDateInQuestion($('.main-input_date').val());
-  var input = $(event.target).siblings('input')[0].className;
-  domUpdates.clearInput(input)
-})
-
-$('.main-button_remove-date').click(() => {
-  domUpdates.removeDateInQuestion()
-})
-
-$('.customer-button_create-customer').click(() => createNewCustomer($('.customer-input_name').val()));
-
-// $('.accordion').accordion({
-//   collapsible: true, active: true
-// })
+  
+$('.bookings-list_available-bookings').click(function(e) {
+  e.preventDefault();
+  let targetRoom = $(e.target).attr('data-id');
+  hotel.bookRoom(targetRoom);
+  domUpdates.unbookButtonChange(targetRoom);
+});
   
 function getDate() {
   let today = new Date();
@@ -80,42 +94,66 @@ function getDate() {
   return thisDay;
 }
 
-
 function onLoadHandler() {
   domUpdates.appendDate(date);
-  defaultOrdersTab();
-
+  defaultAllTabs();
+  $('.customer-input_name').focus();
 }
+
 function determineIfCurrentCustomer(name) {
-  hotel.customers.filter(customer => { 
-    if (customer.name.includes(name.split(' ')[0] || name.split(' ')[1])) {
-      return findAllCustomerInfo(customer.id);
-    } else {
-      domUpdates.invalidCustomerName(name);//need to write
-    }
-  })
+  let actualCustomer = hotel.customers.filter(customer => customer.name === name);
+  if (actualCustomer.length === 1) {
+    actualCustomer.forEach(customer => {
+      domUpdates.validCustomer();
+      findAllCustomerInfo(customer.id);
+    })
+  } else {
+    domUpdates.invalidCustomerName();
+  }
 }
 
 function createNewCustomer(name) { 
   var newId = hotel.customers.length + 1;
   let customer = new Customer(newId, name);
   hotel.customers.push(customer);
-  hotel.findCustomer(newId);// do i want this to return out?
+  hotel.findCustomer(newId);
 }
 
 function findAllCustomerInfo(customerId) {
-  hotel.findCustomer(customerId);
-  bookings.findCustomerBookings(hotel.currentCustomer.id, date);
-  orders.findCustomerOrders(hotel.currentCustomer, date)
-  domUpdates.appendChosenCustomerInformation(bookings, orders)
+  let customerInfo = hotel.findCustomer(customerId);
+  let bookingsInfo = bookings.findCustomerBookings(customerId, date);
+  let ordersInfo = orders.findCustomerOrders(customerId, date);
+  domUpdates.appendChosenCustomerInformation(bookingsInfo, ordersInfo);
+  return [customerInfo, bookingsInfo, ordersInfo]
 }
  
 
-function defaultOrdersTab() {
-  orders.totalRevenuePerDay(orders, date);
-  bookings.findUnoccupiedRooms(hotel, date)
-  bookings.determinePercentOccupied(hotel, date);
-  bookings.findDateWithMostRoomsAvailable(hotel)
+function defaultAllTabs() {
+  let dailyOrders = hotel.findDailyOrdersAllCustomers(date);
+  let dailyBookings = hotel.findDailyBookingsAllCustomers(date);
+  let popularDate = bookings.findMostPopularBookingDate();
+  let percentUnoccupied = bookings.determinePercentOccupied(hotel, date);
+  let revenue = hotel.totalRevenue();
+  let unoccupiedRooms = bookings.findUnoccupiedRooms(hotel, date);
+  domUpdates.appendDefaultOrders(dailyOrders);
+  domUpdates.appendDefaultBookings(dailyBookings);
+  domUpdates.appendPopularBookingDate(popularDate);
+  domUpdates.appendPercentOccupied(percentUnoccupied);
+  domUpdates.totalRevenuePerDay(revenue);
+  domUpdates.appendAvailableBookings(unoccupiedRooms);
+}
+
+function updateDomWithAlternateDate(chosenDate) {
+  let dailyOrders = hotel.findDailyOrdersAllCustomers(chosenDate);
+  let dailyBookings = hotel.findDailyBookingsAllCustomers(chosenDate);
+  let percentUnoccupied = bookings.determinePercentOccupied(hotel, chosenDate);
+  let revenue = orders.totalRevenuePerDay(chosenDate);
+  let unoccupiedRooms = bookings.findUnoccupiedRooms(hotel, chosenDate);
+  domUpdates.appendChosenDateOrders(dailyOrders);
+  domUpdates.appendChosenDateBookings(dailyBookings);
+  domUpdates.appendChosenDateOccupied(percentUnoccupied);
+  domUpdates.totalChosenDateRevenuePerDay(revenue);
+  domUpdates.appendChosenDateBookingsUnoccupied(unoccupiedRooms);
 }
 
 

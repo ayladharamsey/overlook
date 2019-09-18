@@ -42,14 +42,6 @@ describe('hotel', function() {
     })
   });
 
-  // it('should be able to create a new customer and add them to the customer list', function() {
-  //   hotel.createNewCustomer('Mildred Simpson')
-  //   expect(testData.users[10]).to.eql({ 
-  //     id: 11, 
-  //     name: 'Mildred Simpson' 
-  //   })
-  // }); // moved to index but idk where to test
-
   it('should be able to find all bookings for todays date', function() {
     expect(hotel.findDailyBookingsAllCustomers()).to.eql([
       { userID: 1, date: '2019/09/14', roomNumber: 1 },
@@ -71,7 +63,7 @@ describe('hotel', function() {
   });
 
   it('should be able to return the total revenue for a day', function() {
-    expect(hotel.totalRevenue()).to.equal(463.25);
+    expect(hotel.totalRevenue()).to.equal(463);
   });
 
 });
