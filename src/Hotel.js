@@ -1,3 +1,5 @@
+import domUpdates from '../src/domUpdates'
+
 class Hotel {
   constructor(customers, rooms, bookings, orders, todaysDate) {
     this.customers = customers;
@@ -39,6 +41,7 @@ class Hotel {
 
   bookRoom(room) {
     this.bookings.push(room)
+    domUpdates.unbookButtonChange(room);
   }
 }
 
