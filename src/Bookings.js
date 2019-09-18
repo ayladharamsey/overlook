@@ -1,5 +1,3 @@
-import domUpdates from "./domUpdates";
-
 class Bookings {
   constructor(todaysDate, bookings, rooms) {
     this.todaysDate = todaysDate;
@@ -25,7 +23,7 @@ class Bookings {
     let popularDate = Object.keys(dateTally).reduce((bestDate, eachDate) => {
       if (dateTally[eachDate] > bestDate.count) {
         bestDate = {
-          'eachDate': eachDate,
+          eachDate,
           'count': dateTally[eachDate]
         }
       }
@@ -70,7 +68,7 @@ class Bookings {
 
   findUnoccupiedRooms(hotel, date = this.todaysDate) { 
     let roomsBookedForDate = hotel.findDailyBookingsAllCustomers(date).map(booking => booking.roomNumber);
-   return this.rooms.filter(room => !roomsBookedForDate.includes(room.number));
+    return this.rooms.filter(room => !roomsBookedForDate.includes(room.number));
   }
 
   determinePercentOccupied(hotel, date = this.todaysDate) { 
@@ -78,8 +76,6 @@ class Bookings {
     let roomsBookedForDate = hotel.findDailyBookingsAllCustomers(date).length;
     return Math.floor((roomsBookedForDate / numberOfRooms) * 100) 
   }
-
-  
 }
 
 export default Bookings;
