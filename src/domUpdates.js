@@ -71,10 +71,15 @@ let domUpdates = {
   },
 
   appendDefaultOrders(dailyOrders) {
-    dailyOrders.forEach((dailyOrder) => {
-      $('.orders-list_results').append(`
-      Date: ${dailyOrder.date} Food: ${dailyOrder.food} Cost: $ ${dailyOrder.totalCost}<br>`)
-    })
+    $('.orders-list_results').attr('hidden');
+    if (dailyOrders.length > 0) {
+      dailyOrders.forEach((dailyOrder) => {
+        $('.orders-list_chosen-date').append(`
+        Date: ${dailyOrder.date} Food: ${dailyOrder.food} Cost: $ ${dailyOrder.totalCost}<br>`)
+      })
+    } else {
+      $('.orders-list_chosen-date').append(`No orders for this date`);
+    }   
   },
 
   appendDefaultBookings(dailyBookings) {
