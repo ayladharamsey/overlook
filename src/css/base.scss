@@ -47,8 +47,7 @@ body {
   h3 {
     color: $primary-secondary;
     font-family: $display-typeface;
-    font-size: 1em;
-    font-weight: 300;
+    font-weight: 700;
     letter-spacing: 1.3px;
     margin: 10px;
   }
@@ -87,8 +86,11 @@ body {
     .nav-header_chosen-user {
       margin-top: 2.2%;
       width: 500px;
-      font-weight: 700;
-      font-size: 1.3em;
+    }
+    
+    .chosen-name {
+      font-weight: 300;
+      color: #4F788D;
     }
 
     .reset-button {
@@ -99,7 +101,6 @@ body {
 
       h3 {
         font-size: 1.5em;
-
       }
     }
   }
@@ -111,20 +112,25 @@ body {
       text-decoration: none;
     }
 
+    button {
+      background-color: $primary-background;
+    }
+    
+    button:hover {
+      background-color: $primary-secondary;
+    }
+
     .customer-search {
       padding-top: 20px;
-
-      button {
-        background-color: $primary-background;
-      }
-      
-      button:hover {
-        background-color: $primary-secondary;
-      }
 
       input {
         width: 300px;
       }
+
+    }
+
+    .customer-button_create-customer {
+      margin-top: 20px;
     }
 
     .main-header_date {
