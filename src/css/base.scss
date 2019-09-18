@@ -126,7 +126,6 @@ body {
       input {
         width: 300px;
       }
-
     }
 
     .customer-button_create-customer {
@@ -152,6 +151,10 @@ body {
     .main-div_tabs-panel{
       text-align: center;
       margin-top: 20px;
+    }
+
+    .main-button_submit-date {
+      background-color: $primary-fourth;
     }
 
     .list-item {
