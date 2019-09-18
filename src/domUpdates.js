@@ -71,10 +71,9 @@ let domUpdates = {
   },
 
   appendDefaultOrders(dailyOrders) {
-    $('.orders-list_results').attr('hidden');
     if (dailyOrders.length > 0) {
       dailyOrders.forEach((dailyOrder) => {
-        $('.orders-list_chosen-date').append(`
+        $('.orders-list_order-results').append(`
         Date: ${dailyOrder.date} Food: ${dailyOrder.food} Cost: $ ${dailyOrder.totalCost}<br>`)
       })
     } else {
@@ -111,7 +110,54 @@ let domUpdates = {
 
   unbookButtonChange(room) {
     $(`[data-id = "${room}"]`).text('Unbook');
+  },
+
+  appendChosenDateOrders(dailyOrders) {
+    $('.orders-list_chosen-date').show
+    if (dailyOrders.length > 0) {
+      dailyOrders.forEach((dailyOrder) => {
+        $('.orders-list_chosen-date').append(`
+        Date: ${dailyOrder.date} Food: ${dailyOrder.food} Cost: $ ${dailyOrder.totalCost}<br>`)
+      })
+    } else {
+      $('.orders-list_chosen-date').append(`No orders for this date`);
+    }   
+  },
+
+  appendChosenDateBookings(availableBookings) {
+    $('.bookings-list_chosen-date-bookings').show()
+    availableBookings.forEach(availableBooking => {
+      $('.bookings-list_chosen-date-bookings').append(`
+      Room Type : ${availableBooking.roomType} Bidet: ${availableBooking.bidet}
+      Bed Size: ${availableBooking.bedSize} Number of Beds: ${availableBooking.numBeds}
+      Cost Per Night: ${availableBooking.costPerNight} 
+      <button class="book-room" data-id = ${availableBooking.number}> Book </button> <br>`)
+    })  
+  },
+
+  appendChosenDateOccupied(percentage) {
+    $('.percent-occupied-chosen').show()
+    $('.percent-occupied-chosen').text(percentage)
+  },
+
+  totalChosenDateRevenuePerDay(revenue) {
+    $('.main-header_total-revenue').hide();
+    $('.main-header_total-revenue-chosen').show();
+    $('.total-revenue-chosen').text(revenue);
+
+  },
+
+  appendChosenDateBookingsUnoccupied(unoccupiedRooms) {
+    $('.bookings-list_available-chosen-date').show()
+    unoccupiedRooms.forEach(unoccupiedRoom => {
+      $('.bookings-list_available-chosen-date').append(`
+      Room Type : ${unoccupiedRoom.roomType} Bidet: ${unoccupiedRoom.bidet}
+      Bed Size: ${unoccupiedRoom.bedSize} Number of Beds: ${unoccupiedRooms.numBeds}
+      Cost Per Night: ${unoccupiedRoom.costPerNight} 
+      <button class="book-room" data-id = ${unoccupiedRoom.number}> Book </button> <br>`)
+    })  
   }
+
     
 }
 

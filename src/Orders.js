@@ -6,10 +6,6 @@ class Orders {
     this.orders = orders;
   }
 
-  createNewOrder() {
-
-  }
-
   findCustomerOrders(customer, date = this.todaysDate) {
     let pastOrders = [];
     let futureOrders = [];
@@ -26,26 +22,16 @@ class Orders {
         todaysOrders.push(order);
       }
     })
-    console.log([pastOrders, futureOrders, todaysOrders])
     return [pastOrders, futureOrders, todaysOrders]
   }
 
-  totalRevenuePerDay() {
-    let costs = this.orders.filter(order => order.date === this.todaysDate).map(order => order.totalCost);
+  totalRevenuePerDay(date = this.todaysDate) {
+    let costs = this.orders.filter(order => order.date === date).map(order => order.totalCost);
     return costs.reduce((totalCost, eachCost) => {
       totalCost += eachCost
       return totalCost
     }, 0)
   }
-
-  findTotalSpendOnRoomService(orders, id) {
-    //find total spent on room service per customer
-  }
-
-  findTotalPerDayPerCustomer(orders, id, date) {
-
-  }
-  
 }
 
 

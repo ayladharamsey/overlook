@@ -133,7 +133,7 @@ function defaultAllTabs() {
   let dailyBookings = hotel.findDailyBookingsAllCustomers(date);
   let popularDate = bookings.findMostPopularBookingDate();
   let percentUnoccupied = bookings.determinePercentOccupied(hotel, date);
-  let revenue = orders.totalRevenuePerDay(orders, date);
+  let revenue = hotel.totalRevenue();
   let unoccupiedRooms = bookings.findUnoccupiedRooms(hotel, date);
   domUpdates.appendDefaultOrders(dailyOrders);
   domUpdates.appendDefaultBookings(dailyBookings);
@@ -147,13 +147,13 @@ function updateDomWithAlternateDate(chosenDate) {
   let dailyOrders = hotel.findDailyOrdersAllCustomers(chosenDate);
   let dailyBookings = hotel.findDailyBookingsAllCustomers(chosenDate);
   let percentUnoccupied = bookings.determinePercentOccupied(hotel, chosenDate);
-  let revenue = orders.totalRevenuePerDay(orders, chosenDate);
+  let revenue = orders.totalRevenuePerDay(chosenDate);
   let unoccupiedRooms = bookings.findUnoccupiedRooms(hotel, chosenDate);
-  domUpdates.appendDefaultOrders(dailyOrders);
-  domUpdates.appendDefaultBookings(dailyBookings);
-  domUpdates.appendPercentOccupied(percentUnoccupied);
-  domUpdates.totalRevenuePerDay(revenue);
-  domUpdates.appendAvailableBookings(unoccupiedRooms);
+  domUpdates.appendChosenDateOrders(dailyOrders);
+  domUpdates.appendChosenDateBookings(dailyBookings);
+  domUpdates.appendChosenDateOccupied(percentUnoccupied);
+  domUpdates.totalChosenDateRevenuePerDay(revenue);
+  domUpdates.appendChosenDateBookingsUnoccupied(unoccupiedRooms);
 }
 
 

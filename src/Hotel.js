@@ -35,10 +35,11 @@ class Hotel {
     let roomCosts = this.rooms.filter(room => roomsBookedForDate.includes(room.number)).map(room => room.costPerNight);
     let orderCostsForDate = this.findDailyOrdersAllCustomers().map(order => order.totalCost);
     let allCosts = roomCosts.concat(orderCostsForDate);
-    return allCosts.reduce((totalCost, eachCost) => {
+    let total = allCosts.reduce((totalCost, eachCost) => {
       totalCost += eachCost
       return totalCost;
     }, 0)
+    return Math.floor(total)
   }
 
   bookRoom(room) {
