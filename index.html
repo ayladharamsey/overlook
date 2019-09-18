@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <link rel="stylesheet" type="text/css" src="css/base.scss">
+    <link href="https://fonts.googleapis.com/css?family=Glegoo:400,700|Roboto:100,300,400,500,700&display=swap" rel="stylesheet">    
+    <title>Hotel App</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <nav>
+    <h1 class="title"> Hotel Manager </h1>
+    <div class="nav-div_left-nav">
+      <div class="nav-header_chosen-user" hidden> <h3>Chosen Customer: <span class="chosen-name"></span></h3></div>
+    </div>
+    <div class="nav-div_right-nav">
+      <h3 class="nav-date_todays-date">00 / 00 / 00</h3>
+      <button class="reset-button"> Reset </button>
+    </div>
+    </nav>
+    <main>
+      <div class="main-div_date-submission">
+        <h3 class="main-header_date-in-question" hidden></h3>
+        <h5 class="main-header_date"> Date:</h5>
+        <input type="date" placeholder="Enter Date Here" class="main-input_date">
+        <button class="main-button_submit-date">Submit</button>
+        <h5 class="main-header_total-revenue"> Total Revenue $<span class="total-revenue">100</span> </h5>
+        <h5 class="main-header_total-revenue-chosen" hidden> Total Revenue $<span class="total-revenue-chosen">100</span> </h5>
+        <h5 class="main-header_percent-occupied"> Percent Rooms Occupied <span class="percent-occupied">35</span>%</h5>
+        <h5 class="main-header_percent-occupied-chosen" hidden> Percent Rooms Occupied <span class="percent-occupied-chosen">35</span>%</h5>
+        <div class="main-div_tabs-panel">
+          <ul class="tabs">
+            <li class="active list-item" rel="Customer">Customer</li>
+            <li class="list-item" rel="Orders">Orders</li>
+            <li class="list-item" rel="Bookings">Bookings</li>
+          </ul>
+          <div id="Customer"class="panel active">
+            <div class="customer-search">
+                <h3>Customer Search</h3>
+                <input type="search" placeholder="Search for customer here!" class="customer-input_name">
+                <button class="customer-button_submit-name">Submit</button>
+              </div>
+              <div class="customer-div_results"></div>
+              <div class="customer-div_customer-found" ></div>
+              <div class="customer-div_customer-not-found" ></div>
+              <button class="customer-button_create-customer" hidden >Create Customer</button>
+            </div>
+            <div id="Orders" class="panel">
+              <div class="orders-list_results"><span>All Orders Today: </span></div>
+              <div class="orders-list_chosen-date" hidden><span>All Orders for Chosen Date: </span></div>
+              <div class="orders-list_customer-results" hidden><span>Customer Results: </span></div>
+            </div>
+            <div id="Bookings" class="panel">
+              <div class="bookings-header_popular-date"><span>Most Popular Booking Date:</span></div>
+              <div class="bookings-list_todays-bookings"><span>Today's Bookings:</span></div>
+              <div class="bookings-list_chosen-date-bookings" hidden><span>Today's Bookings:</span></div>
+              <div class="bookings-list_available-bookings"><span>Date with Available Bookings:</span></div>
+              <div class="bookings-list_available-chosen-date" hidden><span>Date with Available Bookings:</span></div>
+              <div class="bookings-list_customer-bookings" hidden> <span> Customer Bookings: </span></span></div>
+            </div>
+          </div>  
+        </div>
+      </main>
+    <script type="text/javascript" src="main.bundle.js"></script></body>
+</html>
