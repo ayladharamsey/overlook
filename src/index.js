@@ -84,7 +84,6 @@ function getDate() {
   return thisDay;
 }
 
-
 function onLoadHandler() {
   domUpdates.appendDate(date);
   defaultAllTabs();

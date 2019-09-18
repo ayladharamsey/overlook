@@ -31,7 +31,7 @@ body {
   }
 
   button:hover {
-    background-color:$primary-third;
+    background-color:$primary-secondary;
     color: #FFFFFF;
   }
   
@@ -72,9 +72,8 @@ body {
     justify-content: space-between;
 
     .nav-div_left-nav {
-      display: flex;
-      width: 50%;
-      margin-top:1%;
+      width: 65%;
+      margin-top: 10px;
     }
 
     .nav-button_delete-user {
@@ -97,6 +96,11 @@ body {
     }
     .nav-div_right-nav {
       align-content: center;
+
+      h3 {
+        font-size: 1.5em;
+
+      }
     }
   }
 
@@ -107,8 +111,28 @@ body {
       text-decoration: none;
     }
 
+    .customer-search {
+      padding-top: 20px;
+
+      button {
+        background-color: $primary-background;
+      }
+      
+      button:hover {
+        background-color: $primary-secondary;
+      }
+
+      input {
+        width: 300px;
+      }
+    }
+
     .main-header_date {
       display: inline;
+    }
+
+    .main-header_total-revenue {
+      margin-top: 25px;
     }
     
     input {
@@ -121,6 +145,7 @@ body {
 
     .main-div_tabs-panel{
       text-align: center;
+      margin-top: 20px;
     }
 
     .list-item {
@@ -139,23 +164,27 @@ body {
     }
     
     .list-item.active {
-      background-color: $primary-fourth;
-    }
-
-    .list-item:hover {
       background-color: $primary-fifth;
     }
 
+    .list-item:hover {
+      background-color: $primary-secondary;
+    }
 
     .panel {
       display: none;
-      background-color: $primary-fourth;
+      background-color: $primary-fifth;
     }
     
     .panel.active{
       display: block;
       width: 90%;
       margin-left: 5%;
+      height: 40vh;
+    }
+
+    .customer-div_customer-found {
+      margin-top: 20px;
     }
     
 

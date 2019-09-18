@@ -8,7 +8,7 @@ let domUpdates = {
   },
 
   appendChosenUserName(name) {
-    $('.nav-header_chosen-user').text(name);
+    $('.chosen-name').text(name);
   },
 
   appendDateInQuestion(date) {

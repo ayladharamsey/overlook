@@ -19,23 +19,22 @@ class Hotel {
   }
 
   findDailyBookingsAllCustomers(date = this.todaysDate) {
-    console.log(date)
     return this.bookings.filter(booking => {
       return booking.date === date;
-    })
+    });
   }
 
   findDailyOrdersAllCustomers(date = this.todaysDate) { 
     return this.orders.filter(order => {
       return order.date === date;
-    })
+    });
   }
 
   totalRevenue() { 
     let roomsBookedForDate = this.findDailyBookingsAllCustomers().map(booking => booking.roomNumber);
-    let roomCosts = this.rooms.filter(room => roomsBookedForDate.includes(room.number)).map(room => room.costPerNight)
-    let orderCostsForDate = this.findDailyOrdersAllCustomers().map(order => order.totalCost)
-    let allCosts = roomCosts.concat(orderCostsForDate)
+    let roomCosts = this.rooms.filter(room => roomsBookedForDate.includes(room.number)).map(room => room.costPerNight);
+    let orderCostsForDate = this.findDailyOrdersAllCustomers().map(order => order.totalCost);
+    let allCosts = roomCosts.concat(orderCostsForDate);
     return allCosts.reduce((totalCost, eachCost) => {
       totalCost += eachCost
       return totalCost;
