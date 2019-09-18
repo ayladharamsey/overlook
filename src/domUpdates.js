@@ -73,11 +73,11 @@ let domUpdates = {
   appendDefaultOrders(dailyOrders) {
     if (dailyOrders.length > 0) {
       dailyOrders.forEach((dailyOrder) => {
-        $('.orders-list_order-results').append(`
+        $('.orders-list_results').append(`
         Date: ${dailyOrder.date} Food: ${dailyOrder.food} Cost: $ ${dailyOrder.totalCost}<br>`)
       })
     } else {
-      $('.orders-list_chosen-date').append(`No orders for this date`);
+      $('.orders-list_results').append(`No orders for this date`);
     }   
   },
 
@@ -113,7 +113,8 @@ let domUpdates = {
   },
 
   appendChosenDateOrders(dailyOrders) {
-    $('.orders-list_chosen-date').show
+    $('.orders-list_chosen-date').show();
+    $('.orders-list_results').hide()
     if (dailyOrders.length > 0) {
       dailyOrders.forEach((dailyOrder) => {
         $('.orders-list_chosen-date').append(`
@@ -155,7 +156,6 @@ let domUpdates = {
     $('.bookings-list_available-bookings').hide()
     $('.bookings-list_available-chosen-date').show()
     unoccupiedRooms.forEach(unoccupiedRoom => {
-      console.log(unoccupiedRoom)
       $('.bookings-list_available-chosen-date').append(`
       Room Type : ${unoccupiedRoom.roomType} Bidet: ${unoccupiedRoom.bidet}
       Bed Size: ${unoccupiedRoom.bedSize} Number of Beds: ${unoccupiedRoom.numBeds}
