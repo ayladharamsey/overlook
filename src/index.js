@@ -30,16 +30,19 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
 
 $('.reset-button').click(() => location.reload())
 
-$('.customer-button_submit-name').click(() => {
-  var name = $('.customer-input_name').val()
-  $('.nav-header_chosen-user').removeAttr('hidden');
-  domUpdates.appendChosenUserName(name)
-  determineIfCurrentCustomer(name);
-  var input = $(event.target).siblings('input')[0].className; 
-  domUpdates.clearInput(input);
-})
+$('.customer-button_submit-name').click( () => {
+  let name = $('.customer-input_name').val()
+  if ($('.customer-input_name').val()) {
+    $('.nav-header_chosen-user').removeAttr('hidden');
+    domUpdates.appendChosenUserName(name)
+    determineIfCurrentCustomer(name);
+    var input = $(event.target).siblings('input')[0].className; 
+    domUpdates.clearInput(input);
+    $('.customer-input_name').attr('disabled')
+  }
+});
 
-$('.main-button_submit-date').click(() => {
+$('.main-button_submit-date').click( () => {
   let chosenDate = $('.main-input_date').val().replace(/-/gi, "/");
   domUpdates.appendDateInQuestion(chosenDate);
   updateDomWithAlternateDate(chosenDate);
@@ -47,7 +50,7 @@ $('.main-button_submit-date').click(() => {
   domUpdates.clearInput(input);
 });
 
-$('.customer-button_create-customer').click(() => {
+$('.customer-button_create-customer').click( () => {
   let name = $('.nav-header_chosen-user').text()
   createNewCustomer(name);
   domUpdates.customerCreatedMessage(name);

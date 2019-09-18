@@ -113,11 +113,16 @@ body {
       text-decoration: none;
     }
 
+
     button {
       background-color: $primary-background;
     }
+
+    button:disabled {
+      background-color: $primary-background;
+    }
     
-    button:hover {
+    button:hover{
       background-color: $primary-secondary;
     }
 
@@ -166,7 +171,7 @@ body {
       border-radius: 10px 10px 0px 0px;
       color:$primary-background;
       cursor: pointer; 
-      width: 30%;
+      width: 10%;
       font-size: 1em;
       font-family: $display-typeface;
       text-align: center;
@@ -191,6 +196,10 @@ body {
       width: 90%;
       margin-left: 5%;
       height: 40vh;
+    }
+    .tabs {
+      text-align: left;
+      margin-left: 5%;
     }
 
     .customer-div_customer-found {
