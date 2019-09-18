@@ -2,7 +2,6 @@ import Bookings from '../src/Bookings.js'
 import Hotel from '../src/Hotel'
 import testData from '../data/test-data'
 import chai from 'chai';
-import spies from 'chai-spies'
 const expect = chai.expect;
 let booking;
 let hotel;
