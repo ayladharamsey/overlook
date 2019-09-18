@@ -24,10 +24,10 @@ body {
     background-color: $primary-fifth;
     border-radius: 5px;
     border: none;
-    width: 150px;;
-    height: 25px;
-    font-weight: 600;
     color: #2F4A57;
+    font-weight: 600;
+    height: 25px;
+    width: 150px;;
   }
 
   button:hover {
@@ -36,11 +36,11 @@ body {
   }
   
   h1 {
+    background-color: $primary-third;
+    color: $primary-background;
     font-family: $display-typeface;
     font-size: 2.3em;
     padding: 10px;
-    color: $primary-background;
-    background-color: $primary-third;
     width: 300px;
   }
 
@@ -54,15 +54,15 @@ body {
 
   h5 {
     color: $primary-fourth;
+    font-size: 1em;
     font-weight: 700;
     letter-spacing: 1.2px;
-    font-size: 1em;
     margin: 10px;
   }
 
   span {
-    font-family: $display-typeface;
     color: $primary-secondary;
+    font-family: $display-typeface;
     font-weight: 700;
   }
 
@@ -70,40 +70,40 @@ body {
     display: flex;
     justify-content: space-between;
 
+    .chosen-name {
+      color: #4F788D;
+      font-weight: 300;
+    }
     .nav-div_left-nav {
-      width: 65%;
       margin-top: 10px;
+      width: 65%;
     }
 
     .nav-button_delete-user {
-      width: 150px;
       box-sizing: border-box;
-      display: inline-block;
       color: #2F4A57;
+      display: inline-block;
       margin: 20px;
+      width: 150px;
     }
 
     .nav-header_chosen-user {
       margin-top: 2.2%;
       width: 500px;
     }
-    
-    .chosen-name {
-      font-weight: 300;
-      color: #4F788D;
+
+    .nav-div_right-nav {
+      align-content: center;
+
+    h3 {
+      font-size: 1.5em;
+      }
     }
 
     .reset-button {
       width: 100px;
     }
 
-    .nav-div_right-nav {
-      align-content: center;
-
-      h3 {
-        font-size: 1.5em;
-      }
-    }
   }
 
   main {
@@ -112,7 +112,6 @@ body {
     a {
       text-decoration: none;
     }
-
 
     button {
       background-color: $primary-background;
@@ -124,6 +123,28 @@ body {
     
     button:hover{
       background-color: $primary-secondary;
+    }
+
+    .bookings-list_todays-bookings, 
+    .bookings-list_available-bookings,
+    .bookings-list_chosen-date-bookings,
+    .bookings-list_available-chosen-date,
+    .bookings-list_customer-bookings {
+      max-height: 200px;
+      overflow: scroll;
+      padding: 20px;
+      span {
+        display: block;
+      }
+    }
+
+    .book-room {
+      width: 100px;
+      margin: 5px;
+    }
+
+    .customer-div_customer-found {
+      margin-top: 20px;
     }
 
     .customer-search {
@@ -138,29 +159,12 @@ body {
       margin-top: 20px;
     }
 
-    .main-header_date {
-      display: inline;
-    }
-
-    .main-header_total-revenue {
-      margin-top: 25px;
-    }
-    
     input {
       width: 10%;
       border-radius: 5px;
       border-style: none;
       padding: 5px;
       margin: 10px;
-    }
-
-    .main-div_tabs-panel{
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .main-button_submit-date {
-      background-color: $primary-fifth;
     }
 
     .list-item {
@@ -186,6 +190,23 @@ body {
       background-color: $primary-secondary;
     }
 
+    .main-header_date {
+      display: inline;
+    }
+
+    .main-header_total-revenue {
+      margin-top: 25px;
+    }
+
+    .main-div_tabs-panel{
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .main-button_submit-date {
+      background-color: $primary-fifth;
+    }
+
     .panel {
       display: none;
       background-color: $primary-fifth;
@@ -203,29 +224,6 @@ body {
       text-align: left;
       margin-left: 5%;
     }
-
-    .customer-div_customer-found {
-      margin-top: 20px;
-    }
-
-    .bookings-list_todays-bookings, 
-    .bookings-list_available-bookings,
-    .bookings-list_chosen-date-bookings,
-    .bookings-list_available-chosen-date,
-    .bookings-list_customer-bookings {
-      max-height: 200px;
-      overflow: scroll;
-      padding: 20px;
-      span {
-        display: block;
-      }
-    }
-
-    .book-room {
-      width: 100px;
-      margin: 5px;
-    }
-    
 
   }
 

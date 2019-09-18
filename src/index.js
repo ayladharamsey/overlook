@@ -31,14 +31,14 @@ Promise.all([customersData, roomsData, bookingsData, roomServicesData])
 $('.reset-button').click(() => location.reload())
 
 $('.customer-button_submit-name').click( () => {
-  let name = $('.customer-input_name').val()
+  let name = $('.customer-input_name').val();
   if ($('.customer-input_name').val()) {
     $('.nav-header_chosen-user').removeAttr('hidden');
-    domUpdates.appendChosenUserName(name)
+    domUpdates.appendChosenUserName(name);
     determineIfCurrentCustomer(name);
     var input = $(event.target).siblings('input')[0].className; 
     domUpdates.clearInput(input);
-    $('.customer-input_name').attr('disabled')
+    $('.customer-input_name').attr('disabled');
   }
 });
 
@@ -51,7 +51,7 @@ $('.main-button_submit-date').click( () => {
 });
 
 $('.customer-button_create-customer').click( () => {
-  let name = $('.nav-header_chosen-user').text()
+  let name = $('.nav-header_chosen-user').text();
   createNewCustomer(name);
   domUpdates.customerCreatedMessage(name);
 });
@@ -61,15 +61,22 @@ $('.list-item').click(function() {
   $(this).addClass('active');
   var panelToShow = $(this).attr('rel')
   $('.main-div_tabs-panel .panel.active').slideUp(300, function() {
-    $(this).removeClass('active')
+    $(this).removeClass('active');
     $('#' + panelToShow).slideDown(300, function () {
-      $(this).addClass('active')
+      $(this).addClass('active');
     });
   });
 })
 
   
 $('.bookings-list_available-bookings').click(function(e) {
+  e.preventDefault();
+  let targetRoom = $(e.target).attr('data-id');
+  hotel.bookRoom(targetRoom);
+  domUpdates.unbookButtonChange(targetRoom);
+});
+
+$('.bookings-list_available-chosen-date').click(function(e) {
   e.preventDefault();
   let targetRoom = $(e.target).attr('data-id');
   hotel.bookRoom(targetRoom);
